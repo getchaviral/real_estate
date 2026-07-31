@@ -1,0 +1,72 @@
+[
+  {
+    "id": "loc-001",
+    "slug": "andheri-west",
+    "name": "Andheri West",
+    "cityId": "city-001",
+    "cityName": "Mumbai",
+    "state": "Maharashtra",
+    "description": "Premium residential neighborhood with strong connectivity and high demand.",
+    "isPopular": true,
+    "projectIds": ["proj-001"],
+    "developerIds": ["dev-001"],
+    "createdAt": "2024-01-05T08:00:00Z",
+    "updatedAt": "2024-06-15T10:00:00Z"
+  },
+  {
+    "id": "loc-002",
+    "slug": "bandra-west",
+    "name": "Bandra West",
+    "cityId": "city-001",
+    "cityName": "Mumbai",
+    "state": "Maharashtra",
+    "description": "Luxury micro-market known for upscale homes and premium lifestyle amenities.",
+    "isPopular": true,
+    "projectIds": ["proj-002"],
+    "developerIds": ["dev-001"],
+    "createdAt": "2024-01-05T08:00:00Z",
+    "updatedAt": "2024-06-15T10:00:00Z"
+  },
+  {
+    "id": "loc-003",
+    "slug": "powai",
+    "name": "Powai",
+    "cityId": "city-001",
+    "cityName": "Mumbai",
+    "state": "Maharashtra",
+    "description": "Well-connected locality with modern apartments and strong rental demand.",
+    "isPopular": true,
+    "projectIds": ["proj-002"],
+    "developerIds": ["dev-001"],
+    "createdAt": "2024-01-05T08:00:00Z",
+    "updatedAt": "2024-06-15T10:00:00Z"
+  },
+  {
+    "id": "loc-004",
+    "slug": "gurgaon-sector-56",
+    "name": "Gurgaon Sector 56",
+    "cityId": "city-002",
+    "cityName": "Delhi NCR",
+    "state": "Haryana",
+    "description": "Prime commercial and residential hub in Gurgaon.",
+    "isPopular": true,
+    "projectIds": ["proj-003"],
+    "developerIds": ["dev-002"],
+    "createdAt": "2024-01-06T08:00:00Z",
+    "updatedAt": "2024-06-14T10:00:00Z"
+  },
+  {
+    "id": "loc-005",
+    "slug": "whitefield",
+    "name": "Whitefield",
+    "cityId": "city-003",
+    "cityName": "Bangalore",
+    "state": "Karnataka",
+    "description": "Popular IT corridor with strong housing demand and modern communities.",
+    "isPopular": true,
+    "projectIds": ["proj-004"],
+    "developerIds": ["dev-003"],
+    "createdAt": "2024-01-07T08:00:00Z",
+    "updatedAt": "2024-06-13T10:00:00Z"
+  }
+]

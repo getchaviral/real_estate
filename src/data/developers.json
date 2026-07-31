@@ -1,0 +1,156 @@
+[
+  {
+    "id": "dev-001",
+    "slug": "abc-builders",
+    "name": "ABC Builders & Developers",
+    "tagline": "Building Trust Since 1995",
+    "description": "ABC Builders & Developers has been a pioneer in the Indian real estate sector for over 29 years, delivering 45+ premium residential and commercial projects across major cities.",
+    "logo": "/images/developers/abc-builders/logo.png",
+    "coverImage": "/images/developers/abc-builders/cover.jpg",
+    "foundedYear": 1995,
+    "totalProjects": 45,
+    "completedProjects": 38,
+    "ongoingProjects": 5,
+    "upcomingProjects": 2,
+    "cityIds": ["city-001", "city-002", "city-003"],
+    "localityIds": ["loc-001", "loc-002", "loc-003"],
+    "propertyTypeIds": ["pt-001", "pt-002"],
+    "projectIds": ["proj-001", "proj-002"],
+    "ratings": 4.5,
+    "totalReviews": 1230,
+    "contact": {
+      "phone": "+91-9876543210",
+      "email": "info@abcbuilders.com",
+      "website": "https://abcbuilders.com",
+      "address": "456, Builder Tower, Mumbai"
+    },
+    "socialLinks": {
+      "facebook": "https://facebook.com/abcbuilders",
+      "instagram": "https://instagram.com/abcbuilders",
+      "linkedin": "https://linkedin.com/company/abcbuilders",
+      "youtube": "https://youtube.com/@abcbuilders"
+    },
+    "awards": [
+      { "year": 2023, "title": "Best Residential Developer", "organization": "Realty Awards" },
+      { "year": 2022, "title": "Most Trusted Builder", "organization": "Housing Council" }
+    ],
+    "meta": { "title": "ABC Builders - Premium Real Estate Developer", "description": "ABC Builders has delivered 45+ premium projects across India since 1995.", "keywords": "abc builders, real estate developer" },
+    "createdAt": "2024-01-10T09:00:00Z",
+    "updatedAt": "2024-06-18T11:00:00Z"
+  },
+  {
+    "id": "dev-002",
+    "slug": "pinnacle-infra",
+    "name": "Pinnacle Infra",
+    "tagline": "Creating Landmarks of Excellence",
+    "description": "Pinnacle Infra is a rapidly growing real estate developer known for innovative designs and quality construction across Delhi NCR and Pune.",
+    "logo": "/images/developers/pinnacle-infra/logo.png",
+    "coverImage": "/images/developers/pinnacle-infra/cover.jpg",
+    "foundedYear": 2005,
+    "totalProjects": 28,
+    "completedProjects": 22,
+    "ongoingProjects": 4,
+    "upcomingProjects": 2,
+    "cityIds": ["city-002", "city-004"],
+    "localityIds": ["loc-004"],
+    "propertyTypeIds": ["pt-001", "pt-004"],
+    "projectIds": ["proj-003", "proj-005"],
+    "ratings": 4.3,
+    "totalReviews": 890,
+    "contact": {
+      "phone": "+91-9876543211",
+      "email": "info@pinnacleinfra.com",
+      "website": "https://pinnacleinfra.com",
+      "address": "123, Cyber Hub, Gurgaon"
+    },
+    "socialLinks": {
+      "facebook": "https://facebook.com/pinnacleinfra",
+      "instagram": "https://instagram.com/pinnacleinfra",
+      "linkedin": "https://linkedin.com/company/pinnacleinfra",
+      "youtube": "https://youtube.com/@pinnacleinfra"
+    },
+    "awards": [
+      { "year": 2023, "title": "Innovative Design Award", "organization": "Architecture Today" }
+    ],
+    "meta": { "title": "Pinnacle Infra - Innovative Real Estate Developer", "description": "Pinnacle Infra creates landmark residential projects in Delhi NCR and Pune.", "keywords": "pinnacle infra, real estate developer, gurgaon" },
+    "createdAt": "2024-02-15T10:00:00Z",
+    "updatedAt": "2024-06-16T09:00:00Z"
+  },
+  {
+    "id": "dev-003",
+    "slug": "skyline-constructions",
+    "name": "Skyline Constructions",
+    "tagline": "Building Dreams, Creating Communities",
+    "description": "Skyline Constructions is Bangalore's most trusted developer, known for affordable yet quality residential projects in prime locations.",
+    "logo": "/images/developers/skyline-constructions/logo.png",
+    "coverImage": "/images/developers/skyline-constructions/cover.jpg",
+    "foundedYear": 2010,
+    "totalProjects": 18,
+    "completedProjects": 14,
+    "ongoingProjects": 3,
+    "upcomingProjects": 1,
+    "cityIds": ["city-003"],
+    "localityIds": ["loc-005"],
+    "propertyTypeIds": ["pt-001"],
+    "projectIds": ["proj-004"],
+    "ratings": 4.1,
+    "totalReviews": 560,
+    "contact": {
+      "phone": "+91-9876543212",
+      "email": "info@skylineconstructions.com",
+      "website": "https://skylineconstructions.com",
+      "address": "789, MG Road, Bangalore"
+    },
+    "socialLinks": {
+      "facebook": "https://facebook.com/skylineconstructions",
+      "instagram": "https://instagram.com/skylineconstructions",
+      "linkedin": "https://linkedin.com/company/skylineconstructions",
+      "youtube": "https://youtube.com/@skylineconstructions"
+    },
+    "awards": [
+      { "year": 2023, "title": "Affordable Housing Leader", "organization": "Housing Awards" }
+    ],
+    "meta": { "title": "Skyline Constructions - Trusted Builder in Bangalore", "description": "Skyline Constructions offers quality affordable homes in Bangalore.", "keywords": "skyline constructions, bangalore builder" },
+    "createdAt": "2024-03-01T11:00:00Z",
+    "updatedAt": "2024-06-14T08:00:00Z"
+  },
+  {
+    "id": "dev-004",
+    "slug": "metro-developments",
+    "name": "Metro Developments",
+    "tagline": "Urban Living Redefined",
+    "description": "Metro Developments specializes in tech-enabled smart homes designed for the modern professional. Known for innovative architecture and sustainable practices.",
+    "logo": "/images/developers/metro-developments/logo.png",
+    "coverImage": "/images/developers/metro-developments/cover.jpg",
+    "foundedYear": 2012,
+    "totalProjects": 15,
+    "completedProjects": 11,
+    "ongoingProjects": 3,
+    "upcomingProjects": 1,
+    "cityIds": ["city-005", "city-006"],
+    "localityIds": [],
+    "propertyTypeIds": ["pt-001", "pt-005"],
+    "projectIds": ["proj-006"],
+    "ratings": 4.4,
+    "totalReviews": 720,
+    "contact": {
+      "phone": "+91-9876543213",
+      "email": "info@metrodevelopments.com",
+      "website": "https://metrodevelopments.com",
+      "address": "456, Financial District, Hyderabad"
+    },
+    "socialLinks": {
+      "facebook": "https://facebook.com/metrodevelopments",
+      "instagram": "https://instagram.com/metrodevelopments",
+      "linkedin": "https://linkedin.com/company/metrodevelopments",
+      "youtube": "https://youtube.com/@metrodevelopments"
+    },
+    "awards": [
+      { "year": 2024, "title": "Best Smart Home Project", "organization": "Tech Realty Awards" }
+    ],
+    "meta": { "title": "Metro Developments - Smart Home Builder", "description": "Metro Developments creates tech-enabled smart homes in Hyderabad and Chennai.", "keywords": "metro developments, smart homes, hyderabad" },
+    "createdAt": "2024-04-10T09:00:00Z",
+    "updatedAt": "2024-06-11T10:00:00Z"
+  }
+]
+

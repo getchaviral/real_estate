@@ -1,0 +1,72 @@
+[
+  {
+    "id": "pt-001",
+    "slug": "apartments",
+    "name": "Apartments",
+    "description": "Modern and comfortable apartments in various configurations.",
+    "heroImage": "/images/property-types/apartments.jpg",
+    "relatedProjectIds": ["proj-001", "proj-002", "proj-003", "proj-004", "proj-005", "proj-006"],
+    "relatedDeveloperIds": ["dev-001", "dev-002", "dev-003", "dev-004"],
+    "relatedLocationIds": ["city-001", "city-002", "city-003", "city-004", "city-005"]
+  },
+  {
+    "id": "pt-002",
+    "slug": "villas",
+    "name": "Villas",
+    "description": "Luxurious and spacious villas with premium amenities.",
+    "heroImage": "/images/property-types/villas.jpg",
+    "relatedProjectIds": ["proj-002", "proj-003"],
+    "relatedDeveloperIds": ["dev-001", "dev-002"],
+    "relatedLocationIds": ["city-001", "city-002", "city-004"]
+  },
+  {
+    "id": "pt-003",
+    "slug": "plots",
+    "name": "Plots",
+    "description": "Residential and commercial plots for building your dream property.",
+    "heroImage": "/images/property-types/plots.jpg",
+    "relatedProjectIds": ["proj-005", "proj-006"],
+    "relatedDeveloperIds": ["dev-002", "dev-004"],
+    "relatedLocationIds": ["city-004", "city-005"]
+  },
+  {
+    "id": "pt-004",
+    "slug": "commercial",
+    "name": "Commercial",
+    "description": "Commercial properties for businesses and investment.",
+    "heroImage": "/images/property-types/commercial.jpg",
+    "relatedProjectIds": ["proj-003", "proj-006"],
+    "relatedDeveloperIds": ["dev-002", "dev-004"],
+    "relatedLocationIds": ["city-002", "city-005"]
+  },
+  {
+    "id": "pt-005",
+    "slug": "office-spaces",
+    "name": "Office Spaces",
+    "description": "Modern office spaces in prime business locations.",
+    "heroImage": "/images/property-types/office-spaces.jpg",
+    "relatedProjectIds": ["proj-003", "proj-006"],
+    "relatedDeveloperIds": ["dev-002", "dev-004"],
+    "relatedLocationIds": ["city-002", "city-005"]
+  },
+  {
+    "id": "pt-006",
+    "slug": "retail-shops",
+    "name": "Retail Shops",
+    "description": "Retail shops in high-traffic areas for your business.",
+    "heroImage": "/images/property-types/retail-shops.jpg",
+    "relatedProjectIds": ["proj-001", "proj-003"],
+    "relatedDeveloperIds": ["dev-001", "dev-002"],
+    "relatedLocationIds": ["city-001", "city-002"]
+  },
+  {
+    "id": "pt-007",
+    "slug": "independent-floors",
+    "name": "Independent Floors",
+    "description": "Spacious and private independent floors for families.",
+    "heroImage": "/images/property-types/independent-floors.jpg",
+    "relatedProjectIds": ["proj-002", "proj-005"],
+    "relatedDeveloperIds": ["dev-001", "dev-002"],
+    "relatedLocationIds": ["city-001", "city-004"]
+  }
+]
