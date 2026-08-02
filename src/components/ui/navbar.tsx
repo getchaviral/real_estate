@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Sun, Moon, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { useTheme } from "@/components/providers/theme-provider";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/shared/container";
 import { MegaMenu } from "@/components/ui/mega-menu";
@@ -12,7 +11,6 @@ import { SITE_CONFIG } from "@/lib/constants";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -64,19 +62,6 @@ export function Navbar() {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleTheme}
-              className="h-9 w-9 rounded-full p-0"
-              aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-            >
-              {theme === "light" ? (
-                <Moon className="h-4 w-4" />
-              ) : (
-                <Sun className="h-4 w-4" />
-              )}
-            </Button>
             <Button className="hidden sm:inline-flex">Get Started</Button>
 
             {/* Mobile Menu Toggle */}
