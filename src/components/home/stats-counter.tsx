@@ -49,7 +49,7 @@ const stats = [
 
 export default function StatsCounter() {
   return (
-    <section className="relative z-10 -mt-8 pb-16 sm:pb-20">
+    <section className="relative z-10 -mt-2 pb-12 sm:pb-16">
       <Container>
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="grid gap-4 rounded-[32px] border border-border/70 bg-card/95 p-4 shadow-[0_20px_60px_-32px_rgba(15,23,42,0.24)] sm:grid-cols-2 xl:grid-cols-4 xl:p-6">
           {stats.map((stat) => {

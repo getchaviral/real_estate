@@ -21,6 +21,10 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
     notFound();
   }
 
+  const heroImageSrc = project.images.hero && !project.images.hero.startsWith("/images/projects/")
+    ? project.images.hero
+    : "/images/property-card-bg.svg";
+
   return (
     <Container className="py-16">
       <Link href="/projects" className="inline-flex items-center gap-2 text-sm font-medium text-primary transition hover:gap-3">
@@ -31,7 +35,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
       <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="overflow-hidden rounded-[2rem] border border-border/70 bg-card shadow-[0_20px_60px_-30px_rgba(15,23,42,0.32)]">
           <div className="relative h-[22rem] overflow-hidden sm:h-[28rem]">
-            <Image src={project.images.hero} alt={project.name} fill className="object-cover" />
+            <Image src={heroImageSrc} alt={project.name} fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             <div className="absolute left-4 top-4 z-10">
               <Badge variant={getStatusColor(project.status) as any} className="capitalize">
