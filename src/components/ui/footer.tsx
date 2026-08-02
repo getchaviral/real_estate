@@ -87,9 +87,6 @@ export function Footer() {
 
           {/* Property Types */}
           <div>
-            <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
-              Property Types
-            </h3>
             <ul className="mt-4 space-y-3">
               {[
                 { label: "Apartments", href: "/property-types/apartments" },

@@ -85,3 +85,8 @@ export async function getProjects(
     },
   };
 }
+
+export async function getProject(slug: string): Promise<Project | null> {
+  await new Promise(resolve => setTimeout(resolve, 250));
+  return allProjects.find((project) => project.slug === slug) ?? null;
+}

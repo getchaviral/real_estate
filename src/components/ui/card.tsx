@@ -9,8 +9,8 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
     return (
       <div
         ref={ref}
-        className={`rounded-xl border border-border bg-card text-card-foreground shadow-card ${
-          hover ? "transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1" : ""
+        className={`rounded-[24px] border border-border/80 bg-card/95 text-card-foreground shadow-[0_20px_56px_-28px_rgba(15,23,42,0.28)] ${
+          hover ? "transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_26px_64px_-24px_rgba(15,23,42,0.34)]" : ""
         } ${className}`}
         {...props}
       >

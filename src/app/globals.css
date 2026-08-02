@@ -137,6 +137,22 @@
     @apply py-16 md:py-24;
   }
 
+  .section-surface {
+    border-radius: 2rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 20px 60px -32px rgba(15, 23, 42, 0.24);
+    backdrop-filter: blur(10px);
+  }
+
+  .section-surface-muted {
+    border-radius: 2rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(248, 250, 252, 0.9);
+    box-shadow: 0 18px 50px -30px rgba(15, 23, 42, 0.16);
+    backdrop-filter: blur(10px);
+  }
+
   /* Hero gradient for "Dream Home" text - contrasts well on both themes */
   .hero-gradient-text {
     @apply bg-gradient-to-r from-accent via-amber-400 to-orange-500 bg-clip-text text-transparent;
@@ -155,11 +171,60 @@
     background: hsl(var(--hero-search-bg));
     border-color: hsl(var(--hero-search-border));
   }
+  .hero-search-shell {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08));
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 24px 60px rgba(2, 6, 23, 0.24);
+  }
   .hero-search-input {
     color: hsl(var(--hero-search-text));
   }
   .hero-search-input::placeholder {
     color: hsl(var(--hero-search-placeholder));
+  }
+  .hero-search-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color-scheme: light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+    background-size: 1rem;
+    color: #0f172a;
+    font-family: inherit;
+  }
+  .hero-search-select option {
+    padding: 0.7rem 0.9rem;
+    background-color: #ffffff;
+    color: #0f172a;
+    font-family: inherit;
+  }
+  .hero-search-select option:hover,
+  .hero-search-select option:focus,
+  .hero-search-select option:checked {
+    background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+    color: #0f172a;
+  }
+  .hero-status-chip {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.04);
+    color: hsl(var(--hero-muted));
+  }
+  .hero-status-chip:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: hsl(var(--hero-foreground));
+  }
+  .hero-status-chip-active {
+    border-color: hsl(var(--hero-accent));
+    background: rgba(249, 115, 22, 0.16);
+    color: hsl(var(--hero-accent));
+  }
+  .hero-suggestion-item {
+    color: hsl(var(--hero-foreground));
+  }
+  .hero-suggestion-item:hover {
+    background: rgba(255, 255, 255, 0.1);
   }
 
   /* Badge semantic colors */
@@ -179,6 +244,44 @@
   /* CTA section gradient */
   .cta-gradient {
     background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.8) 100%);
+  }
+}
+
+@layer utilities {
+  .dark .bg-white,
+  .dark .bg-white\/95,
+  .dark .bg-white\/90,
+  .dark .bg-white\/80,
+  .dark .bg-white\/10,
+  .dark .bg-white\/15 {
+    background-color: hsl(var(--card));
+  }
+
+  .dark .bg-slate-50,
+  .dark .bg-slate-50\/70,
+  .dark .bg-slate-50\/80,
+  .dark .bg-slate-50\/90 {
+    background-color: hsl(var(--muted));
+  }
+
+  .dark .bg-slate-100 {
+    background-color: hsl(var(--secondary));
+  }
+
+  .dark .border-slate-200,
+  .dark .border-slate-100,
+  .dark .border-slate-200\/80 {
+    border-color: hsl(var(--border));
+  }
+
+  .dark .text-slate-900 {
+    color: hsl(var(--foreground));
+  }
+
+  .dark .text-slate-800,
+  .dark .text-slate-700,
+  .dark .text-slate-600 {
+    color: hsl(var(--muted-foreground));
   }
 }
 

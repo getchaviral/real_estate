@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Building2, Users, MapPin, Award } from "lucide-react";
+import { Award, Building2, MapPin, Users } from "lucide-react";
 import Container from "@/components/shared/container";
 
 interface CounterProps {
@@ -37,12 +37,7 @@ function Counter({ end, suffix = "", duration = 2 }: CounterProps) {
     return () => cancelAnimationFrame(animationFrame);
   }, [isInView, end, duration]);
 
-  return (
-    <span ref={ref}>
-      {count}
-      {suffix}
-    </span>
-  );
+  return <span ref={ref}>{count}{suffix}</span>;
 }
 
 const stats = [
@@ -54,28 +49,20 @@ const stats = [
 
 export default function StatsCounter() {
   return (
-    <section className="relative -mt-16 z-10 pb-16">
+    <section className="relative z-10 -mt-8 pb-16 sm:pb-20">
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="grid grid-cols-2 gap-4 rounded-2xl bg-card p-6 shadow-card sm:grid-cols-4 sm:gap-8 sm:p-10"
-        >
-          {stats.map((stat, index) => {
+        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="grid gap-4 rounded-[32px] border border-border/70 bg-card/95 p-4 shadow-[0_20px_60px_-32px_rgba(15,23,42,0.24)] sm:grid-cols-2 xl:grid-cols-4 xl:p-6">
+          {stats.map((stat) => {
             const Icon = stat.icon;
             return (
-              <div key={stat.label} className="text-center">
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                  <Icon className="h-6 w-6 text-primary" />
+              <div key={stat.label} className="rounded-[22px] border border-border/80 bg-muted/70 px-5 py-5 text-center transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:bg-card hover:shadow-sm">
+                <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-orange-50 text-orange-500">
+                  <Icon className="h-5 w-5" />
                 </div>
-                <div className="text-2xl font-bold text-card-foreground sm:text-3xl">
+                <div className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
                   <Counter end={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="mt-1 text-sm text-muted-foreground">
-                  {stat.label}
-                </div>
+                <div className="mt-2 text-sm font-medium text-muted-foreground">{stat.label}</div>
               </div>
             );
           })}

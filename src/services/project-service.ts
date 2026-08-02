@@ -1,1 +1,1 @@
-export { getProjects } from "@/types/project-service";
+export { getProject, getProjects } from "@/types/project-service";

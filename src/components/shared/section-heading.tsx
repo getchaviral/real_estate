@@ -17,6 +17,8 @@ export default function SectionHeading({
   className = "",
   children,
 }: SectionHeadingProps) {
+  const headingContent = children ?? title;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -27,11 +29,13 @@ export default function SectionHeading({
         align === "center" ? "mx-auto text-center" : "text-left"
       } ${className}`}
     >
-      <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-        {children ?? title}
-      </h2>
+      {headingContent ? (
+        <h2 className="text-3xl font-semibold tracking-[-0.02em] text-foreground sm:text-4xl lg:text-5xl">
+          {headingContent}
+        </h2>
+      ) : null}
       {subtitle && (
-        <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+        <p className="mt-4 text-lg leading-8 text-muted-foreground sm:text-xl">
           {subtitle}
         </p>
       )}

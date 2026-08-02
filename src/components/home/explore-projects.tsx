@@ -91,7 +91,7 @@ export default function ExploreProjects() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: index * 0.08, duration: 0.45 }}
             >
-              <Card className="group h-full overflow-hidden border-border/70 bg-background/80">
+              <Card className="group h-full overflow-hidden border-border/80 bg-card/95 shadow-[0_20px_56px_-32px_rgba(15,23,42,0.2)]">
                 <div className={`bg-gradient-to-br ${category.accent} p-6`}>
                   <div className="flex items-start justify-between">
                     <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-background/80 text-primary shadow-sm">
