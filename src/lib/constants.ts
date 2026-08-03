@@ -5,7 +5,8 @@ export const SITE_CONFIG = {
     "Discover premium residential and commercial properties across India's top cities.",
   email: "hello@realestate.com",
   phone: "+91 1800-123-4567",
-  address: "123 Business Park, Mumbai - 400001, India",
+  address: "YouWe Homes Realtech, B 94, B Block, Sector 151 Noida",
+  reraNumber: "UPRERAAGT21978",
   socialLinks: {
     facebook: "https://facebook.com",
     instagram: "https://instagram.com",

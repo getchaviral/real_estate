@@ -97,6 +97,10 @@ export default function ContactPage() {
                     <span>{SITE_CONFIG.address}</span>
                   </div>
                   <div className="flex gap-3">
+                    <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                    <span>RERA No: {SITE_CONFIG.reraNumber}</span>
+                  </div>
+                  <div className="flex gap-3">
                     <Phone className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                     <a href={`tel:${SITE_CONFIG.phone}`} className="hover:text-foreground">
                       {SITE_CONFIG.phone}

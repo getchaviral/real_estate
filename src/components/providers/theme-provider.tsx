@@ -18,7 +18,7 @@ function getInitialTheme(): Theme {
   if (typeof window !== "undefined") {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored === "light" || stored === "dark") return stored;
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    return "light";
   }
   return "light";
 }
@@ -58,7 +58,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
                 try {
                   var theme = localStorage.getItem('${STORAGE_KEY}');
                   if (!theme) {
-                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                    theme = 'light';
                   }
                   document.documentElement.classList.add(theme);
                 } catch (e) {}
