@@ -1,5 +1,5 @@
 export const SITE_CONFIG = {
-  name: "RealEstate",
+  name: "YouWe Homes",
   tagline: "Find Your Dream Home",
   description:
     "Discover premium residential and commercial properties across India's top cities.",

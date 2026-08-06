@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Geist } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Navbar } from "@/components/ui/navbar";
@@ -17,8 +18,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "RealEstate - Find Your Dream Home",
-    template: "%s | RealEstate",
+    default: "YouWe Homes - Find Your Dream Home",
+    template: "%s | YouWe Homes",
   },
   description:
     "Discover premium residential and commercial properties across India's top cities. Find your dream home with India's most trusted real estate platform.",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     "Chennai",
   ],
   openGraph: {
-    title: "RealEstate - Find Your Dream Home",
+    title: "YouWe Homes - Find Your Dream Home",
     description:
       "Discover premium residential and commercial properties across India's top cities.",
     type: "website",
@@ -59,6 +60,23 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('realestate-theme');
+                  if (!theme) {
+                    theme = 'light';
+                  }
+                  document.documentElement.classList.add(theme);
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
         <ThemeProvider>
           <Navbar />
           <main className="flex-1">{children}</main>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Container from "@/components/shared/container";
@@ -13,6 +13,7 @@ interface ProjectCarouselProps {
   title: string;
   subtitle: string;
   projects: Project[];
+  extraInfo?: ReactNode;
   viewAllHref?: string;
   viewAllLabel?: string;
   className?: string;
@@ -22,6 +23,7 @@ export default function ProjectCarousel({
   title,
   subtitle,
   projects,
+  extraInfo,
   viewAllHref,
   viewAllLabel = "View all projects",
   className,
@@ -64,6 +66,7 @@ export default function ProjectCarousel({
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex-1">
             <SectionHeading title={title} subtitle={subtitle} />
+            {extraInfo ? <div className="mt-3">{extraInfo}</div> : null}
           </div>
           <div className="hidden items-center gap-2 sm:flex">
             <button

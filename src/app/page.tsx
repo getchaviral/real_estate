@@ -2,7 +2,6 @@ import HeroSection from "@/components/home/hero-section";
 import StatsCounter from "@/components/home/stats-counter";
 import FeaturedProjects from "@/components/home/featured-projects";
 import ExploreProjects from "@/components/home/explore-projects";
-import PopularCities from "@/components/home/popular-cities";
 import PopularLocalities from "@/components/home/popular-localities";
 import TopProperties from "@/components/home/top-properties";
 import TopDevelopers from "@/components/home/top-developers";
@@ -21,7 +20,6 @@ const homeSections = [
   StatsCounter,
   FeaturedProjects,
   ExploreProjects,
-  PopularCities,
   PopularLocalities,
   TopProperties,
   TopDevelopers,
