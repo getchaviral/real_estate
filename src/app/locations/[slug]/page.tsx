@@ -20,7 +20,7 @@ import { ArrowRight, TrendingUp, Building2, MapPin, Sparkles } from "lucide-reac
 import FAQSection from "@/components/home/faq-section";
 import ContactCTA from "@/components/home/contact-cta";
 import BlogPreview from "@/components/home/blog-preview";
-import { motion } from "framer-motion";
+import MotionWrapper from "@/components/shared/motion-wrapper";
 
 export async function generateStaticParams() {
   const projects = loadCSVProjects();
@@ -81,10 +81,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
       <section className="relative -mt-10 z-10 pb-8">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <MotionWrapper
             transition={{ duration: 0.35 }}
             className="rounded-2xl border border-border/70 bg-card/95 p-4 shadow-card backdrop-blur sm:p-6"
           >
@@ -97,7 +94,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                 <SearchForm />
               </div>
             </div>
-          </motion.div>
+          </MotionWrapper>
         </div>
       </section>
 
@@ -167,11 +164,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {/* no locality data in CSV; show top localities from projects */}
           {Array.from(new Set(locationProjects.map((p) => p.locality))).slice(0, 8).map((locality, index) => (
-            <motion.div
+            <MotionWrapper
               key={locality || index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
               transition={{ delay: index * 0.08, duration: 0.4 }}
             >
               <Card className="h-full border-border/70 bg-card/70 hover:-translate-y-1 transition-all duration-300">
@@ -183,7 +177,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                   <p className="mt-3 text-sm text-muted-foreground">A fast-growing neighborhood with strong demand and premium lifestyle options.</p>
                 </CardContent>
               </Card>
-            </motion.div>
+            </MotionWrapper>
           ))}
         </div>
       </LocationSectionShell>
@@ -196,11 +190,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         >
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {locationDevelopers.map((developer, index) => (
-              <motion.div
+              <MotionWrapper
                 key={developer.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
                 transition={{ delay: index * 0.08, duration: 0.4 }}
               >
                 <Card className="h-full text-center">
@@ -216,7 +207,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </MotionWrapper>
             ))}
           </div>
         </LocationSectionShell>
