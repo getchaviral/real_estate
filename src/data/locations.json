@@ -1,0 +1,167 @@
+[
+  {
+    "id": "city-001",
+    "slug": "mumbai",
+    "name": "Mumbai",
+    "state": "Maharashtra",
+    "description": "Mumbai, the city of dreams, offers a vibrant real estate market with options ranging from affordable housing to ultra-luxury sea-facing apartments.",
+    "heroImage": "/images/cities/mumbai/hero.jpg",
+    "isPopular": true,
+    "totalProjects": 1250,
+    "totalDevelopers": 340,
+    "popularLocalities": [
+      { "id": "loc-001", "name": "Andheri West", "slug": "andheri-west" },
+      { "id": "loc-002", "name": "Bandra West", "slug": "bandra-west" },
+      { "id": "loc-003", "name": "Powai", "slug": "powai" }
+    ],
+    "priceRange": { "min": 2500000, "max": 50000000, "currency": "INR" },
+    "avgPricePerSqft": 12000,
+    "marketInsights": [
+      { "year": 2023, "priceTrend": 8.5, "supply": 15000, "demand": 18000 },
+      { "year": 2024, "priceTrend": 10.2, "supply": 16000, "demand": 20000 }
+    ],
+    "faqs": [],
+    "featuredProjectIds": ["proj-001", "proj-002"],
+    "topDeveloperIds": ["dev-001"],
+    "meta": { "title": "Properties in Mumbai", "description": "Find residential and commercial properties in Mumbai.", "keywords": "mumbai real estate" },
+    "createdAt": "2024-01-05T08:00:00Z",
+    "updatedAt": "2024-06-15T10:00:00Z"
+  },
+  {
+    "id": "city-002",
+    "slug": "delhi-ncr",
+    "name": "Delhi NCR",
+    "state": "Delhi",
+    "description": "Delhi NCR is one of India's largest real estate markets, offering everything from budget-friendly apartments to luxury villas across Gurgaon, Noida, and Ghaziabad.",
+    "heroImage": "/images/cities/delhi-ncr/hero.jpg",
+    "isPopular": true,
+    "totalProjects": 2100,
+    "totalDevelopers": 520,
+    "popularLocalities": [
+      { "id": "loc-004", "name": "Gurgaon Sector 56", "slug": "gurgaon-sector-56" },
+      { "id": "loc-005", "name": "Noida Sector 62", "slug": "noida-sector-62" },
+      { "id": "loc-006", "name": "Dwarka", "slug": "dwarka" }
+    ],
+    "priceRange": { "min": 2000000, "max": 80000000, "currency": "INR" },
+    "avgPricePerSqft": 8500,
+    "marketInsights": [
+      { "year": 2023, "priceTrend": 7.2, "supply": 25000, "demand": 28000 },
+      { "year": 2024, "priceTrend": 9.5, "supply": 26000, "demand": 31000 }
+    ],
+    "faqs": [],
+    "featuredProjectIds": ["proj-003"],
+    "topDeveloperIds": ["dev-002"],
+    "meta": { "title": "Properties in Delhi NCR", "description": "Find properties in Delhi NCR including Gurgaon, Noida, and Ghaziabad.", "keywords": "delhi ncr real estate" },
+    "createdAt": "2024-01-06T08:00:00Z",
+    "updatedAt": "2024-06-14T10:00:00Z"
+  },
+  {
+    "id": "city-003",
+    "slug": "bangalore",
+    "name": "Bangalore",
+    "state": "Karnataka",
+    "description": "Bangalore, India's Silicon Valley, has a thriving real estate market driven by IT professionals and startups, with demand for modern apartments and villas.",
+    "heroImage": "/images/cities/bangalore/hero.jpg",
+    "isPopular": true,
+    "totalProjects": 1800,
+    "totalDevelopers": 450,
+    "popularLocalities": [
+      { "id": "loc-007", "name": "Whitefield", "slug": "whitefield" },
+      { "id": "loc-008", "name": "Electronic City", "slug": "electronic-city" }
+    ],
+    "priceRange": { "min": 3000000, "max": 25000000, "currency": "INR" },
+    "avgPricePerSqft": 7500,
+    "marketInsights": [
+      { "year": 2023, "priceTrend": 6.8, "supply": 22000, "demand": 25000 },
+      { "year": 2024, "priceTrend": 8.1, "supply": 24000, "demand": 28000 }
+    ],
+    "faqs": [],
+    "featuredProjectIds": ["proj-004"],
+    "topDeveloperIds": ["dev-003"],
+    "meta": { "title": "Properties in Bangalore", "description": "Find residential properties in Bangalore.", "keywords": "bangalore real estate" },
+    "createdAt": "2024-01-07T08:00:00Z",
+    "updatedAt": "2024-06-13T10:00:00Z"
+  },
+  {
+    "id": "city-004",
+    "slug": "pune",
+    "name": "Pune",
+    "state": "Maharashtra",
+    "description": "Pune has emerged as a preferred destination for home buyers with its pleasant climate, excellent educational institutions, and growing IT infrastructure.",
+    "heroImage": "/images/cities/pune/hero.jpg",
+    "isPopular": true,
+    "totalProjects": 950,
+    "totalDevelopers": 280,
+    "popularLocalities": [
+      { "id": "loc-009", "name": "Hinjewadi", "slug": "hinjewadi" },
+      { "id": "loc-010", "name": "Kharadi", "slug": "kharadi" }
+    ],
+    "priceRange": { "min": 2500000, "max": 20000000, "currency": "INR" },
+    "avgPricePerSqft": 6500,
+    "marketInsights": [
+      { "year": 2023, "priceTrend": 7.5, "supply": 12000, "demand": 14000 },
+      { "year": 2024, "priceTrend": 9.0, "supply": 13000, "demand": 16000 }
+    ],
+    "faqs": [],
+    "featuredProjectIds": ["proj-005"],
+    "topDeveloperIds": ["dev-002"],
+    "meta": { "title": "Properties in Pune", "description": "Find residential and commercial properties in Pune.", "keywords": "pune real estate" },
+    "createdAt": "2024-01-08T08:00:00Z",
+    "updatedAt": "2024-06-12T10:00:00Z"
+  },
+  {
+    "id": "city-005",
+    "slug": "hyderabad",
+    "name": "Hyderabad",
+    "state": "Telangana",
+    "description": "Hyderabad's real estate market has seen tremendous growth with the expansion of IT corridors and excellent infrastructure development.",
+    "heroImage": "/images/cities/hyderabad/hero.jpg",
+    "isPopular": true,
+    "totalProjects": 780,
+    "totalDevelopers": 210,
+    "popularLocalities": [
+      { "id": "loc-011", "name": "HITEC City", "slug": "hitec-city" },
+      { "id": "loc-012", "name": "Gachibowli", "slug": "gachibowli" }
+    ],
+    "priceRange": { "min": 2500000, "max": 18000000, "currency": "INR" },
+    "avgPricePerSqft": 5800,
+    "marketInsights": [
+      { "year": 2023, "priceTrend": 9.2, "supply": 10000, "demand": 12000 },
+      { "year": 2024, "priceTrend": 11.5, "supply": 11000, "demand": 14000 }
+    ],
+    "faqs": [],
+    "featuredProjectIds": ["proj-006"],
+    "topDeveloperIds": ["dev-004"],
+    "meta": { "title": "Properties in Hyderabad", "description": "Find residential properties in Hyderabad.", "keywords": "hyderabad real estate" },
+    "createdAt": "2024-01-09T08:00:00Z",
+    "updatedAt": "2024-06-11T10:00:00Z"
+  },
+  {
+    "id": "city-006",
+    "slug": "chennai",
+    "name": "Chennai",
+    "state": "Tamil Nadu",
+    "description": "Chennai offers a stable real estate market with affordable housing options and growing demand in the IT corridor along Old Mahabalipuram Road.",
+    "heroImage": "/images/cities/chennai/hero.jpg",
+    "isPopular": false,
+    "totalProjects": 680,
+    "totalDevelopers": 190,
+    "popularLocalities": [
+      { "id": "loc-013", "name": "OMR", "slug": "omr" },
+      { "id": "loc-014", "name": "Velachery", "slug": "velachery" }
+    ],
+    "priceRange": { "min": 2000000, "max": 15000000, "currency": "INR" },
+    "avgPricePerSqft": 5500,
+    "marketInsights": [
+      { "year": 2023, "priceTrend": 5.8, "supply": 8000, "demand": 9000 },
+      { "year": 2024, "priceTrend": 7.2, "supply": 8500, "demand": 10000 }
+    ],
+    "faqs": [],
+    "featuredProjectIds": [],
+    "topDeveloperIds": [],
+    "meta": { "title": "Properties in Chennai", "description": "Find affordable properties in Chennai.", "keywords": "chennai real estate" },
+    "createdAt": "2024-01-10T08:00:00Z",
+    "updatedAt": "2024-06-10T10:00:00Z"
+  }
+]
+

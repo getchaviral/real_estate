@@ -1,0 +1,508 @@
+[
+  {
+    "id": "proj-001",
+    "slug": "sunrise-gardens",
+    "name": "Sunrise Gardens",
+    "tagline": "Luxury Living in the Heart of the City",
+    "description": "Sunrise Gardens offers a perfect blend of modern architecture and natural surroundings. Spread across 5 acres, this residential project features 4 towers with 450 units, each designed to maximize natural light and ventilation.",
+    "category": "residential",
+    "status": "ready-to-move",
+    "propertyType": ["apartment", "penthouse"],
+    "developerId": "dev-001",
+    "developerName": "ABC Builders & Developers",
+    "cityId": "city-001",
+    "cityName": "Mumbai",
+    "locality": "Andheri West",
+    "address": "123, Sunrise Avenue, Andheri West, Mumbai",
+    "coordinates": { "lat": 19.1136, "lng": 72.8697 },
+    "totalArea": "5 Acres",
+    "totalUnits": 450,
+    "totalTowers": 4,
+    "configurations": [
+      { "type": "1 BHK", "area": "450 - 550 sq.ft.", "price": { "min": 4500000, "max": 5500000, "currency": "INR" } },
+      { "type": "2 BHK", "area": "750 - 950 sq.ft.", "price": { "min": 7500000, "max": 9500000, "currency": "INR" } },
+      { "type": "3 BHK", "area": "1100 - 1400 sq.ft.", "price": { "min": 11000000, "max": 14000000, "currency": "INR" } }
+    ],
+    "priceRange": { "min": 4500000, "max": 14000000, "currency": "INR" },
+    "possessionDate": "2024-12-31",
+    "possessionStatus": "ready-to-move",
+    "reraNumber": "RERA-2024-MH-12345",
+    "images": {
+      "hero": "/images/projects/sunrise-gardens/hero.jpg",
+      "gallery": ["/images/projects/sunrise-gardens/gallery-1.jpg", "/images/projects/sunrise-gardens/gallery-2.jpg"],
+      "floorPlans": [],
+      "masterPlan": "/images/projects/sunrise-gardens/master-plan.jpg"
+    },
+    "amenities": [
+      { "id": "amen-001", "name": "Swimming Pool", "icon": "pool" },
+      { "id": "amen-002", "name": "Gymnasium", "icon": "dumbbell" },
+      { "id": "amen-003", "name": "Club House", "icon": "building" }
+    ],
+    "nearbyPlaces": [
+      { "name": "City Mall", "distance": "0.5 km", "type": "shopping" },
+      { "name": "Metro Station", "distance": "0.3 km", "type": "transit" }
+    ],
+    "features": ["Vaastu Compliant", "Power Backup", "Lift", "Parking", "Rain Water Harvesting"],
+    "similarProjects": ["proj-002", "proj-003"],
+    "isFeatured": true,
+    "isNewLaunch": false,
+    "meta": { "title": "Sunrise Gardens - Luxury Apartments in Andheri West", "description": "Sunrise Gardens offers luxurious 1,2,3 BHK apartments in Andheri West. Ready to move.", "keywords": "apartments, andheri west, luxury" },
+    "createdAt": "2024-01-15T10:30:00Z",
+    "updatedAt": "2024-06-20T14:00:00Z"
+  },
+  {
+    "id": "proj-002",
+    "slug": "green-valley-estate",
+    "name": "Green Valley Estate",
+    "tagline": "Where Nature Meets Modern Living",
+    "description": "Green Valley Estate is a premium residential project spread across 8 acres of lush greenery. Featuring 600 units across 6 towers with world-class amenities.",
+    "category": "residential",
+    "status": "under-construction",
+    "propertyType": ["apartment", "villa"],
+    "developerId": "dev-001",
+    "developerName": "ABC Builders & Developers",
+    "cityId": "city-001",
+    "cityName": "Mumbai",
+    "locality": "Powai",
+    "address": "456, Green Valley Road, Powai, Mumbai",
+    "coordinates": { "lat": 19.1176, "lng": 72.9059 },
+    "totalArea": "8 Acres",
+    "totalUnits": 600,
+    "totalTowers": 6,
+    "configurations": [
+      { "type": "2 BHK", "area": "850 - 1050 sq.ft.", "price": { "min": 8500000, "max": 10500000, "currency": "INR" } },
+      { "type": "3 BHK", "area": "1200 - 1500 sq.ft.", "price": { "min": 12000000, "max": 15000000, "currency": "INR" } },
+      { "type": "4 BHK", "area": "1800 - 2200 sq.ft.", "price": { "min": 20000000, "max": 28000000, "currency": "INR" } }
+    ],
+    "priceRange": { "min": 8500000, "max": 28000000, "currency": "INR" },
+    "possessionDate": "2026-06-30",
+    "possessionStatus": "under-construction",
+    "reraNumber": "RERA-2024-MH-67890",
+    "images": {
+      "hero": "/images/projects/green-valley/hero.jpg",
+      "gallery": ["/images/projects/green-valley/gallery-1.jpg", "/images/projects/green-valley/gallery-2.jpg"],
+      "floorPlans": [],
+      "masterPlan": "/images/projects/green-valley/master-plan.jpg"
+    },
+    "amenities": [
+      { "id": "amen-001", "name": "Swimming Pool", "icon": "pool" },
+      { "id": "amen-002", "name": "Gymnasium", "icon": "dumbbell" },
+      { "id": "amen-003", "name": "Club House", "icon": "building" },
+      { "id": "amen-004", "name": "Jogging Track", "icon": "run" }
+    ],
+    "nearbyPlaces": [
+      { "name": "Hiranandani Hospital", "distance": "1.0 km", "type": "hospital" },
+      { "name": "Powai Lake", "distance": "0.5 km", "type": "park" }
+    ],
+    "features": ["Power Backup", "Lift", "Parking", "Rain Water Harvesting", "Solar Panel"],
+    "similarProjects": ["proj-001", "proj-003"],
+    "isFeatured": true,
+    "isNewLaunch": false,
+    "meta": { "title": "Green Valley Estate - Premium Apartments in Powai", "description": "Green Valley Estate offers premium 2,3,4 BHK apartments in Powai with world-class amenities.", "keywords": "apartments, powai, premium" },
+    "createdAt": "2024-02-20T09:00:00Z",
+    "updatedAt": "2024-06-18T11:00:00Z"
+  },
+  {
+    "id": "proj-003",
+    "slug": "royal-oaks",
+    "name": "Royal Oaks",
+    "tagline": "Redefining Urban Luxury",
+    "description": "Royal Oaks is an exclusive residential enclave offering 3 and 4 BHK luxury apartments with panoramic city views. Experience unparalleled craftsmanship and design.",
+    "category": "residential",
+    "status": "new-launch",
+    "propertyType": ["apartment", "penthouse"],
+    "developerId": "dev-002",
+    "developerName": "Pinnacle Infra",
+    "cityId": "city-002",
+    "cityName": "Delhi NCR",
+    "locality": "Gurgaon Sector 56",
+    "address": "789, Sector 56, Gurgaon, Delhi NCR",
+    "coordinates": { "lat": 28.4595, "lng": 77.0266 },
+    "totalArea": "6 Acres",
+    "totalUnits": 320,
+    "totalTowers": 3,
+    "configurations": [
+      { "type": "3 BHK", "area": "1400 - 1700 sq.ft.", "price": { "min": 15000000, "max": 18500000, "currency": "INR" } },
+      { "type": "4 BHK", "area": "2000 - 2500 sq.ft.", "price": { "min": 22000000, "max": 30000000, "currency": "INR" } }
+    ],
+    "priceRange": { "min": 15000000, "max": 30000000, "currency": "INR" },
+    "possessionDate": "2027-12-31",
+    "possessionStatus": "new-launch",
+    "reraNumber": "RERA-2024-DL-45678",
+    "images": {
+      "hero": "/images/projects/royal-oaks/hero.jpg",
+      "gallery": ["/images/projects/royal-oaks/gallery-1.jpg", "/images/projects/royal-oaks/gallery-2.jpg"],
+      "floorPlans": [],
+      "masterPlan": "/images/projects/royal-oaks/master-plan.jpg"
+    },
+    "amenities": [
+      { "id": "amen-001", "name": "Swimming Pool", "icon": "pool" },
+      { "id": "amen-002", "name": "Gymnasium", "icon": "dumbbell" },
+      { "id": "amen-003", "name": "Club House", "icon": "building" },
+      { "id": "amen-005", "name": "Landscaped Garden", "icon": "flower" },
+      { "id": "amen-007", "name": "Indoor Games", "icon": "gamepad" }
+    ],
+    "nearbyPlaces": [
+      { "name": "DLF Cyber City", "distance": "2.0 km", "type": "shopping" },
+      { "name": "Fortis Hospital", "distance": "1.5 km", "type": "hospital" }
+    ],
+    "features": ["Vaastu Compliant", "Power Backup", "Lift", "Parking", "Rain Water Harvesting", "Solar Panel"],
+    "similarProjects": ["proj-001", "proj-004"],
+    "isFeatured": true,
+    "isNewLaunch": true,
+    "meta": { "title": "Royal Oaks - Luxury Apartments in Gurgaon", "description": "Royal Oaks offers luxury 3,4 BHK apartments in Gurgaon Sector 56. New Launch.", "keywords": "luxury apartments, gurgaon, new launch" },
+    "createdAt": "2024-03-10T11:00:00Z",
+    "updatedAt": "2024-06-15T10:00:00Z"
+  },
+  {
+    "id": "proj-004",
+    "slug": "silver-springs",
+    "name": "Silver Springs",
+    "tagline": "Affordable Luxury for Modern Families",
+    "description": "Silver Springs offers well-designed 1 and 2 BHK apartments at affordable prices without compromising on quality. Perfect for first-time home buyers.",
+    "category": "residential",
+    "status": "new-launch",
+    "propertyType": ["apartment"],
+    "developerId": "dev-003",
+    "developerName": "Skyline Constructions",
+    "cityId": "city-003",
+    "cityName": "Bangalore",
+    "locality": "Whitefield",
+    "address": "234, Whitefield Main Road, Bangalore",
+    "coordinates": { "lat": 12.9698, "lng": 77.75 },
+    "totalArea": "3.5 Acres",
+    "totalUnits": 280,
+    "totalTowers": 2,
+    "configurations": [
+      { "type": "1 BHK", "area": "450 - 550 sq.ft.", "price": { "min": 3500000, "max": 4200000, "currency": "INR" } },
+      { "type": "2 BHK", "area": "700 - 900 sq.ft.", "price": { "min": 5500000, "max": 7200000, "currency": "INR" } }
+    ],
+    "priceRange": { "min": 3500000, "max": 7200000, "currency": "INR" },
+    "possessionDate": "2027-03-31",
+    "possessionStatus": "new-launch",
+    "reraNumber": "RERA-2024-KA-98765",
+    "images": {
+      "hero": "/images/projects/silver-springs/hero.jpg",
+      "gallery": ["/images/projects/silver-springs/gallery-1.jpg", "/images/projects/silver-springs/gallery-2.jpg"],
+      "floorPlans": [],
+      "masterPlan": "/images/projects/silver-springs/master-plan.jpg"
+    },
+    "amenities": [
+      { "id": "amen-002", "name": "Gymnasium", "icon": "dumbbell" },
+      { "id": "amen-004", "name": "Children's Play Area", "icon": "toy-brick" },
+      { "id": "amen-005", "name": "Landscaped Garden", "icon": "flower" }
+    ],
+    "nearbyPlaces": [
+      { "name": "Forum Mall", "distance": "0.8 km", "type": "shopping" },
+      { "name": "Whitefield Railway Station", "distance": "1.2 km", "type": "transit" }
+    ],
+    "features": ["Power Backup", "Lift", "Parking", "Rain Water Harvesting"],
+    "similarProjects": ["proj-005", "proj-006"],
+    "isFeatured": false,
+    "isNewLaunch": true,
+    "meta": { "title": "Silver Springs - Affordable Apartments in Whitefield", "description": "Silver Springs offers affordable 1,2 BHK apartments in Whitefield, Bangalore. New Launch.", "keywords": "affordable apartments, whitefield, bangalore" },
+    "createdAt": "2024-04-05T10:00:00Z",
+    "updatedAt": "2024-06-10T09:00:00Z"
+  },
+  {
+    "id": "proj-005",
+    "slug": "lake-view-towers",
+    "name": "Lake View Towers",
+    "tagline": "Serene Living by the Lake",
+    "description": "Lake View Towers offers stunning lake-facing apartments with 2 and 3 BHK configurations. Enjoy peaceful mornings with breathtaking views.",
+    "category": "residential",
+    "status": "ready-to-move",
+    "propertyType": ["apartment"],
+    "developerId": "dev-002",
+    "developerName": "Pinnacle Infra",
+    "cityId": "city-004",
+    "cityName": "Pune",
+    "locality": "Hinjewadi",
+    "address": "567, Hinjewadi Lake Road, Pune",
+    "coordinates": { "lat": 18.5913, "lng": 73.7389 },
+    "totalArea": "4 Acres",
+    "totalUnits": 350,
+    "totalTowers": 3,
+    "configurations": [
+      { "type": "2 BHK", "area": "800 - 1000 sq.ft.", "price": { "min": 6500000, "max": 8000000, "currency": "INR" } },
+      { "type": "3 BHK", "area": "1100 - 1400 sq.ft.", "price": { "min": 9500000, "max": 12000000, "currency": "INR" } }
+    ],
+    "priceRange": { "min": 6500000, "max": 12000000, "currency": "INR" },
+    "possessionDate": "2024-03-15",
+    "possessionStatus": "ready-to-move",
+    "reraNumber": "RERA-2024-MH-54321",
+    "images": {
+      "hero": "/images/projects/lake-view/hero.jpg",
+      "gallery": ["/images/projects/lake-view/gallery-1.jpg", "/images/projects/lake-view/gallery-2.jpg"],
+      "floorPlans": [],
+      "masterPlan": "/images/projects/lake-view/master-plan.jpg"
+    },
+    "amenities": [
+      { "id": "amen-001", "name": "Swimming Pool", "icon": "pool" },
+      { "id": "amen-002", "name": "Gymnasium", "icon": "dumbbell" },
+      { "id": "amen-006", "name": "Jogging Track", "icon": "run" },
+      { "id": "amen-008", "name": "24/7 Security", "icon": "shield" }
+    ],
+    "nearbyPlaces": [
+      { "name": "Hinjewadi IT Park", "distance": "0.5 km", "type": "shopping" },
+      { "name": "Mumbai-Pune Expressway", "distance": "2.0 km", "type": "transit" }
+    ],
+    "features": ["Power Backup", "Lift", "Parking", "Rain Water Harvesting"],
+    "similarProjects": ["proj-001", "proj-002"],
+    "isFeatured": false,
+    "isNewLaunch": false,
+    "meta": { "title": "Lake View Towers - Lake Facing Apartments in Hinjewadi", "description": "Lake View Towers offers 2,3 BHK lake facing apartments in Hinjewadi, Pune. Ready to move.", "keywords": "lake facing apartments, hinjewadi, pune" },
+    "createdAt": "2024-01-20T08:00:00Z",
+    "updatedAt": "2024-05-30T12:00:00Z"
+  },
+  {
+    "id": "proj-006",
+    "slug": "urban-horizons",
+    "name": "Urban Horizons",
+    "tagline": "The Future of Urban Living",
+    "description": "Urban Horizons is a modern residential project designed for the new-age professional. Featuring smart home technology and sustainable design.",
+    "category": "residential",
+    "status": "under-construction",
+    "propertyType": ["apartment", "studio"],
+    "developerId": "dev-004",
+    "developerName": "Metro Developments",
+    "cityId": "city-005",
+    "cityName": "Hyderabad",
+    "locality": "HITEC City",
+    "address": "890, HITEC City Main Road, Hyderabad",
+    "coordinates": { "lat": 17.4472, "lng": 78.3799 },
+    "totalArea": "4.5 Acres",
+    "totalUnits": 380,
+    "totalTowers": 3,
+    "configurations": [
+      { "type": "Studio", "area": "300 - 400 sq.ft.", "price": { "min": 2500000, "max": 3500000, "currency": "INR" } },
+      { "type": "1 BHK", "area": "500 - 650 sq.ft.", "price": { "min": 4000000, "max": 5500000, "currency": "INR" } },
+      { "type": "2 BHK", "area": "800 - 1100 sq.ft.", "price": { "min": 7000000, "max": 9500000, "currency": "INR" } }
+    ],
+    "priceRange": { "min": 2500000, "max": 9500000, "currency": "INR" },
+    "possessionDate": "2026-09-30",
+    "possessionStatus": "under-construction",
+    "reraNumber": "RERA-2024-TS-13579",
+    "images": {
+      "hero": "/images/projects/urban-horizons/hero.jpg",
+      "gallery": ["/images/projects/urban-horizons/gallery-1.jpg", "/images/projects/urban-horizons/gallery-2.jpg"],
+      "floorPlans": [],
+      "masterPlan": "/images/projects/urban-horizons/master-plan.jpg"
+    },
+    "amenities": [
+      { "id": "amen-002", "name": "Gymnasium", "icon": "dumbbell" },
+      { "id": "amen-003", "name": "Club House", "icon": "building" },
+      { "id": "amen-007", "name": "Indoor Games", "icon": "gamepad" },
+      { "id": "amen-008", "name": "24/7 Security", "icon": "shield" }
+    ],
+    "nearbyPlaces": [
+      { "name": "Inorbit Mall", "distance": "1.0 km", "type": "shopping" },
+      { "name": "HITEC City Metro", "distance": "0.3 km", "type": "transit" }
+    ],
+    "features": ["Smart Home", "Power Backup", "Lift", "Parking", "Solar Panel"],
+    "similarProjects": ["proj-004", "proj-005"],
+    "isFeatured": false,
+    "isNewLaunch": false,
+    "meta": { "title": "Urban Horizons - Smart Apartments in HITEC City", "description": "Urban Horizons offers smart studio, 1,2 BHK apartments in HITEC City, Hyderabad. Under construction.", "keywords": "smart apartments, hitec city, hyderabad" },
+    "createdAt": "2024-05-01T09:00:00Z",
+    "updatedAt": "2024-06-12T14:00:00Z"
+  },
+  {
+    "id": "proj-007",
+    "slug": "ocean-breeze-residency",
+    "name": "Ocean Breeze Residency",
+    "tagline": "Coastal Living at its Finest",
+    "description": "Experience the tranquility of seaside living at Ocean Breeze Residency. Offering luxurious 2 and 3 BHK apartments with direct beach access and stunning ocean views.",
+    "category": "residential",
+    "status": "ready-to-move",
+    "propertyType": ["apartment", "penthouse"],
+    "developerId": "dev-001",
+    "developerName": "ABC Builders & Developers",
+    "cityId": "city-006",
+    "cityName": "Chennai",
+    "locality": "Besant Nagar",
+    "address": "101, Beach Road, Besant Nagar, Chennai",
+    "coordinates": { "lat": 13.006, "lng": 80.2707 },
+    "totalArea": "3 Acres",
+    "totalUnits": 150,
+    "totalTowers": 2,
+    "configurations": [
+      { "type": "2 BHK", "area": "1200 - 1500 sq.ft.", "price": { "min": 12000000, "max": 15000000, "currency": "INR" } },
+      { "type": "3 BHK", "area": "1800 - 2200 sq.ft.", "price": { "min": 18000000, "max": 25000000, "currency": "INR" } }
+    ],
+    "priceRange": { "min": 12000000, "max": 25000000, "currency": "INR" },
+    "possessionDate": "2023-12-31",
+    "possessionStatus": "ready-to-move",
+    "reraNumber": "RERA-2023-TN-11223",
+    "images": {
+      "hero": "/images/projects/ocean-breeze/hero.jpg",
+      "gallery": ["/images/projects/ocean-breeze/gallery-1.jpg", "/images/projects/ocean-breeze/gallery-2.jpg"],
+      "floorPlans": [],
+      "masterPlan": "/images/projects/ocean-breeze/master-plan.jpg"
+    },
+    "amenities": [
+      { "id": "amen-001", "name": "Swimming Pool", "icon": "pool" },
+      { "id": "amen-002", "name": "Gymnasium", "icon": "dumbbell" },
+      { "id": "amen-003", "name": "Club House", "icon": "building" }
+    ],
+    "nearbyPlaces": [
+      { "name": "Besant Nagar Beach", "distance": "0.1 km", "type": "park" },
+      { "name": "Adyar Cancer Institute", "distance": "2.0 km", "type": "hospital" }
+    ],
+    "features": ["Sea View", "Power Backup", "Lift", "Parking"],
+    "similarProjects": ["proj-001", "proj-005"],
+    "isFeatured": true,
+    "isNewLaunch": false,
+    "meta": { "title": "Ocean Breeze Residency - Beachfront Apartments in Chennai", "description": "Luxury 2 & 3 BHK apartments in Besant Nagar, Chennai with stunning sea views.", "keywords": "beachfront apartments, chennai, luxury" },
+    "createdAt": "2023-01-15T10:30:00Z",
+    "updatedAt": "2024-06-21T14:00:00Z"
+  },
+  {
+    "id": "proj-008",
+    "slug": "pinnacle-corporate-park",
+    "name": "Pinnacle Corporate Park",
+    "tagline": "The Future of Business Spaces",
+    "description": "A state-of-the-art commercial complex in the heart of Bangalore's IT corridor. Offering flexible office spaces, retail showrooms, and co-working environments.",
+    "category": "commercial",
+    "status": "under-construction",
+    "propertyType": ["office-space", "retail-space"],
+    "developerId": "dev-002",
+    "developerName": "Pinnacle Infra",
+    "cityId": "city-003",
+    "cityName": "Bangalore",
+    "locality": "Koramangala",
+    "address": "789, 1st Main, Koramangala, Bangalore",
+    "coordinates": { "lat": 12.9352, "lng": 77.6245 },
+    "totalArea": "2 Acres",
+    "totalUnits": 100,
+    "totalTowers": 1,
+    "configurations": [
+      { "type": "Office Space", "area": "1000 - 10000 sq.ft.", "price": { "min": 10000000, "max": 100000000, "currency": "INR" } },
+      { "type": "Retail Space", "area": "500 - 2000 sq.ft.", "price": { "min": 8000000, "max": 30000000, "currency": "INR" } }
+    ],
+    "priceRange": { "min": 8000000, "max": 100000000, "currency": "INR" },
+    "possessionDate": "2025-12-31",
+    "possessionStatus": "under-construction",
+    "reraNumber": "RERA-2024-KA-55667",
+    "images": {
+      "hero": "/images/projects/pinnacle-park/hero.jpg",
+      "gallery": [],
+      "floorPlans": [],
+      "masterPlan": "/images/projects/pinnacle-park/master-plan.jpg"
+    },
+    "amenities": [
+      { "id": "amen-008", "name": "24/7 Security", "icon": "shield" },
+      { "id": "amen-009", "name": "Conference Room", "icon": "users" },
+      { "id": "amen-010", "name": "Food Court", "icon": "utensils" }
+    ],
+    "nearbyPlaces": [
+      { "name": "Forum Mall", "distance": "0.5 km", "type": "shopping" },
+      { "name": "St. John's Hospital", "distance": "1.0 km", "type": "hospital" }
+    ],
+    "features": ["Grade A Building", "Power Backup", "Lift", "Parking", "Centralized AC"],
+    "similarProjects": ["proj-006"],
+    "isFeatured": false,
+    "isNewLaunch": false,
+    "meta": { "title": "Pinnacle Corporate Park - Commercial Spaces in Koramangala", "description": "Premium office and retail spaces for sale in Koramangala, Bangalore.", "keywords": "commercial property, office space, bangalore" },
+    "createdAt": "2024-02-10T11:00:00Z",
+    "updatedAt": "2024-06-19T10:00:00Z"
+  },
+  {
+    "id": "proj-009",
+    "slug": "the-boulevard",
+    "name": "The Boulevard",
+    "tagline": "Shop, Dine, and Thrive",
+    "description": "A premium high-street retail and commercial development in the heart of Delhi NCR, offering an unmatched business environment.",
+    "category": "commercial",
+    "status": "ready-to-move",
+    "propertyType": ["retail-space", "food-court"],
+    "developerId": "dev-002",
+    "developerName": "Pinnacle Infra",
+    "cityId": "city-002",
+    "cityName": "Delhi NCR",
+    "locality": "Noida Sector 18",
+    "address": "Plot 18, Sector 18, Noida",
+    "coordinates": { "lat": 28.5706, "lng": 77.3261 },
+    "totalArea": "1.5 Acres",
+    "totalUnits": 120,
+    "totalTowers": 1,
+    "configurations": [
+      { "type": "Retail Shop", "area": "300 - 1500 sq.ft.", "price": { "min": 9000000, "max": 45000000, "currency": "INR" } }
+    ],
+    "priceRange": { "min": 9000000, "max": 45000000, "currency": "INR" },
+    "possessionDate": "2024-01-01",
+    "possessionStatus": "ready-to-move",
+    "reraNumber": "RERA-2022-UP-12121",
+    "images": {
+      "hero": "/images/projects/the-boulevard/hero.jpg",
+      "gallery": [],
+      "floorPlans": [],
+      "masterPlan": "/images/projects/the-boulevard/master-plan.jpg"
+    },
+    "amenities": [
+      { "id": "amen-008", "name": "24/7 Security", "icon": "shield" },
+      { "id": "amen-010", "name": "Food Court", "icon": "utensils" }
+    ],
+    "nearbyPlaces": [
+      { "name": "DLF Mall of India", "distance": "0.2 km", "type": "shopping" },
+      { "name": "Noida Sector 18 Metro", "distance": "0.1 km", "type": "transit" }
+    ],
+    "features": ["High Street Retail", "Ample Parking", "Power Backup"],
+    "similarProjects": ["proj-008"],
+    "isFeatured": true,
+    "isNewLaunch": false,
+    "meta": { "title": "The Boulevard - Commercial Shops in Noida", "description": "Ready to move commercial shops and retail spaces in Noida Sector 18.", "keywords": "commercial shops, noida, retail space" },
+    "createdAt": "2022-05-10T09:00:00Z",
+    "updatedAt": "2024-06-18T11:00:00Z"
+  },
+  {
+    "id": "proj-010",
+    "slug": "serene-villas",
+    "name": "Serene Villas",
+    "tagline": "Your Private Paradise",
+    "description": "An exclusive gated community of 50 luxurious villas, each with a private garden and pool. Designed for those who appreciate privacy and elegance.",
+    "category": "residential",
+    "status": "new-launch",
+    "propertyType": ["villa"],
+    "developerId": "dev-003",
+    "developerName": "Skyline Constructions",
+    "cityId": "city-004",
+    "cityName": "Pune",
+    "locality": "Kharadi",
+    "address": "123, Villa Lane, Kharadi, Pune",
+    "coordinates": { "lat": 18.552, "lng": 73.925 },
+    "totalArea": "10 Acres",
+    "totalUnits": 50,
+    "totalTowers": 0,
+    "configurations": [
+      { "type": "4 BHK Villa", "area": "3000 - 3500 sq.ft.", "price": { "min": 35000000, "max": 45000000, "currency": "INR" } },
+      { "type": "5 BHK Villa", "area": "4000 - 5000 sq.ft.", "price": { "min": 50000000, "max": 65000000, "currency": "INR" } }
+    ],
+    "priceRange": { "min": 35000000, "max": 65000000, "currency": "INR" },
+    "possessionDate": "2028-12-31",
+    "possessionStatus": "new-launch",
+    "reraNumber": "RERA-2024-MH-99887",
+    "images": {
+      "hero": "/images/projects/serene-villas/hero.jpg",
+      "gallery": [],
+      "floorPlans": [],
+      "masterPlan": "/images/projects/serene-villas/master-plan.jpg"
+    },
+    "amenities": [
+      { "id": "amen-001", "name": "Swimming Pool", "icon": "pool" },
+      { "id": "amen-003", "name": "Club House", "icon": "building" },
+      { "id": "amen-005", "name": "Landscaped Garden", "icon": "flower" }
+    ],
+    "nearbyPlaces": [
+      { "name": "EON IT Park", "distance": "2.0 km", "type": "office" },
+      { "name": "World Trade Center", "distance": "2.5 km", "type": "office" }
+    ],
+    "features": ["Private Garden", "Private Pool", "Gated Community", "Vaastu Compliant"],
+    "similarProjects": ["proj-002"],
+    "isFeatured": true,
+    "isNewLaunch": true,
+    "meta": { "title": "Serene Villas - Luxury Villas in Pune", "description": "New launch luxury 4 & 5 BHK villas in Kharadi, Pune.", "keywords": "villas, pune, luxury, new launch" },
+    "createdAt": "2024-06-01T10:00:00Z",
+    "updatedAt": "2024-06-20T09:00:00Z"
+  }
+]
