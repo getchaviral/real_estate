@@ -1,0 +1,60 @@
+[
+  {
+    "id": "blog-001",
+    "slug": "tips-for-first-time-home-buyers",
+    "title": "10 Essential Tips for First-Time Home Buyers in 2024",
+    "excerpt": "Buying your first home is exciting but overwhelming. Here are 10 tips to make the process smoother and help you make a confident decision.",
+    "content": "Full blog post content here...",
+    "coverImage": "/images/blog/first-time-buyers.jpg",
+    "author": {
+      "name": "Priya Patel",
+      "avatar": "/images/blog/authors/priya-patel.jpg",
+      "bio": "Real estate expert with 10+ years of experience"
+    },
+    "category": "buying-guide",
+    "tags": ["first-time-buyer", "home-buying-tips", "real-estate-guide"],
+    "readTime": 8,
+    "publishedAt": "2024-06-01T10:00:00Z",
+    "isFeatured": true,
+    "meta": { "title": "10 Essential Tips for First-Time Home Buyers", "description": "Comprehensive guide for first-time home buyers.", "keywords": "first time home buyer" }
+  },
+  {
+    "id": "blog-002",
+    "slug": "real-estate-trends-2024",
+    "title": "Top Real Estate Trends Shaping the Market in 2024",
+    "excerpt": "From smart homes to sustainable living, discover the key trends that are defining the real estate landscape this year.",
+    "content": "Full blog post content here...",
+    "coverImage": "/images/blog/real-estate-trends.jpg",
+    "author": {
+      "name": "Vikram Singh",
+      "avatar": "/images/blog/authors/vikram-singh.jpg",
+      "bio": "Market analyst and real estate consultant"
+    },
+    "category": "market-insights",
+    "tags": ["real-estate-trends", "market-analysis", "2024"],
+    "readTime": 6,
+    "publishedAt": "2024-05-15T10:00:00Z",
+    "isFeatured": true,
+    "meta": { "title": "Top Real Estate Trends 2024", "description": "Discover key real estate trends shaping 2024.", "keywords": "real estate trends 2024" }
+  },
+  {
+    "id": "blog-003",
+    "slug": "home-loan-guide",
+    "title": "Complete Guide to Home Loans: Everything You Need to Know",
+    "excerpt": "Understanding home loans can be complex. This guide breaks down the entire process, from eligibility to repayment, in simple terms.",
+    "content": "Full blog post content here...",
+    "coverImage": "/images/blog/home-loan-guide.jpg",
+    "author": {
+      "name": "Anjali Mehta",
+      "avatar": "/images/blog/authors/anjali-mehta.jpg",
+      "bio": "Financial advisor specializing in home financing"
+    },
+    "category": "finance",
+    "tags": ["home-loan", "finance", "mortgage"],
+    "readTime": 10,
+    "publishedAt": "2024-04-20T10:00:00Z",
+    "isFeatured": false,
+    "meta": { "title": "Complete Guide to Home Loans", "description": "Everything you need to know about home loans.", "keywords": "home loan guide" }
+  }
+]
+

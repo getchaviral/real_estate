@@ -1,0 +1,47 @@
+[
+  {
+    "id": "test-001",
+    "name": "Rahul Sharma",
+    "location": "Mumbai",
+    "avatar": "/images/testimonials/rahul-sharma.jpg",
+    "rating": 5,
+    "content": "I found my dream home through this platform. The search was seamless and the team guided me through every step of the buying process. Highly recommended!",
+    "projectId": "proj-001",
+    "isFeatured": true,
+    "createdAt": "2024-03-10T12:00:00Z"
+  },
+  {
+    "id": "test-002",
+    "name": "Priya Patel",
+    "location": "Bangalore",
+    "avatar": "/images/testimonials/priya-patel.jpg",
+    "rating": 5,
+    "content": "The platform made it incredibly easy to compare different projects across Bangalore. The detailed information and virtual tours helped me make an informed decision.",
+    "projectId": "proj-004",
+    "isFeatured": true,
+    "createdAt": "2024-04-15T10:00:00Z"
+  },
+  {
+    "id": "test-003",
+    "name": "Amit Kumar",
+    "location": "Delhi NCR",
+    "avatar": "/images/testimonials/amit-kumar.jpg",
+    "rating": 4,
+    "content": "Excellent selection of properties in Delhi NCR. The customer support team was very responsive and helped me find exactly what I was looking for within my budget.",
+    "projectId": "proj-003",
+    "isFeatured": true,
+    "createdAt": "2024-05-20T14:00:00Z"
+  },
+  {
+    "id": "test-004",
+    "name": "Sneha Reddy",
+    "location": "Hyderabad",
+    "avatar": "/images/testimonials/sneha-reddy.jpg",
+    "rating": 5,
+    "content": "As a first-time home buyer, I was nervous about the process. The platform's comprehensive guides and expert advice made my home buying journey smooth and enjoyable.",
+    "projectId": "proj-006",
+    "isFeatured": false,
+    "createdAt": "2024-06-01T09:00:00Z"
+  }
+]
+

@@ -1,0 +1,26 @@
+import Container from "@/components/shared/container";
+import SectionHeading from "@/components/shared/section-heading";
+import type { ReactNode } from "react";
+
+interface LocationSectionShellProps {
+  title: string;
+  subtitle?: string;
+  children: ReactNode;
+  className?: string;
+}
+
+export default function LocationSectionShell({
+  title,
+  subtitle,
+  children,
+  className = "",
+}: LocationSectionShellProps) {
+  return (
+    <section className={`py-16 sm:py-20 ${className}`.trim()}>
+      <Container>
+        <SectionHeading title={title} subtitle={subtitle} />
+        <div className="mt-10">{children}</div>
+      </Container>
+    </section>
+  );
+}

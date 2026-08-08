@@ -1,0 +1,51 @@
+[
+  {
+    "id": "faq-001",
+    "question": "What documents are required for a home loan?",
+    "answer": "Typically, you need identity proof (Aadhaar, PAN), address proof, income proof (salary slips, IT returns), bank statements, property documents, and a filled application form. Requirements may vary by lender.",
+    "category": "home-loan",
+    "order": 1,
+    "isPublished": true
+  },
+  {
+    "id": "faq-002",
+    "question": "What is the difference between ready-to-move and under-construction properties?",
+    "answer": "Ready-to-move properties are completed and available for immediate possession. Under-construction properties are still being built and offer lower prices but require waiting for completion. Each has its own advantages depending on your needs.",
+    "category": "property-types",
+    "order": 2,
+    "isPublished": true
+  },
+  {
+    "id": "faq-003",
+    "question": "How do I verify if a property has all legal approvals?",
+    "answer": "Check for RERA registration number, approved building plans, title deed, encumbrance certificate, occupancy certificate (for ready properties), and environmental clearances. Our platform lists all verified projects with their RERA numbers.",
+    "category": "legal",
+    "order": 3,
+    "isPublished": true
+  },
+  {
+    "id": "faq-004",
+    "question": "What are the additional costs involved in buying a property?",
+    "answer": "Beyond the property price, expect costs like stamp duty (5-7% depending on state), registration charges (1-2%), GST (1% for affordable, 5% for others), maintenance deposit, legal fees, and home loan processing fees.",
+    "category": "costs",
+    "order": 4,
+    "isPublished": true
+  },
+  {
+    "id": "faq-005",
+    "question": "How can I schedule a site visit?",
+    "answer": "You can schedule a site visit through our platform by clicking the 'Schedule Visit' button on any project page. Our team will coordinate with the developer and confirm your appointment within 24 hours.",
+    "category": "general",
+    "order": 5,
+    "isPublished": true
+  },
+  {
+    "id": "faq-006",
+    "question": "Is it better to buy a property in a city or suburb?",
+    "answer": "It depends on your priorities. City properties offer better connectivity and amenities but are more expensive. Suburban properties provide more space, better air quality, and are more affordable but may have longer commute times.",
+    "category": "general",
+    "order": 6,
+    "isPublished": true
+  }
+]
+
