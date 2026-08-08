@@ -13,7 +13,7 @@ interface SectionHeadingProps {
 export default function SectionHeading({
   title,
   subtitle,
-  align = "center",
+  align = "left",
   className = "",
   children,
 }: SectionHeadingProps) {
@@ -35,7 +35,7 @@ export default function SectionHeading({
         </h2>
       ) : null}
       {subtitle && (
-        <p className="mt-4 text-lg leading-8 text-muted-foreground sm:text-xl">
+        <p className="mt-3 text-lg leading-8 text-muted-foreground sm:text-xl">
           {subtitle}
         </p>
       )}

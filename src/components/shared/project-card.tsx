@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import type { Project } from "@/types/project";
 import { formatPriceRange, getStatusColor } from "@/lib/utils";
 import { PROJECT_STATUS_LABELS } from "@/lib/constants";
+import { getFallbackImage } from "@/lib/fallback-images";
 
 interface ProjectCardProps {
   project: Project;
@@ -113,7 +114,9 @@ function ProjectCard({ project }: ProjectCardProps) {
     router.push(`/projects/${project.slug}`);
   };
 
-  const imageSrc = project.images?.hero || project.images?.gallery?.[0] || "/images/property-card-bg.svg";
+  const [imgError, setImgError] = useState(false);
+  const fallbackImage = getFallbackImage(project.slug);
+  const imageSrc = imgError ? fallbackImage : (project.images?.hero || project.images?.gallery?.[0] || fallbackImage);
   const statusVariant = getStatusColor(project.status) as "primary" | "secondary" | "success" | "warning" | "danger" | "outline";
   const developerName = project.developerName || project.builderName || project.developer || "Developer on request";
 
@@ -126,6 +129,7 @@ function ProjectCard({ project }: ProjectCardProps) {
           fill
           sizes="(max-width: 768px) 90vw, (max-width: 1280px) 22rem, 24rem"
           className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+          onError={() => setImgError(true)}
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-black/10" />

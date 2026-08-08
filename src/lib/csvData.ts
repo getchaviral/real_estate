@@ -1,4 +1,5 @@
 import type { Project } from "@/types/project";
+import { getFallbackImage } from "@/lib/fallback-images";
 
 function parseCSV(text: string) {
   const rows: string[][] = [];
@@ -178,6 +179,7 @@ export function readCSVProjectsFromString(raw: string) {
     const featuresRaw = getAliasedField(obj, ['features', 'Features', 'key amenities features', 'Key Amenities / Features']);
     const amenitiesRaw = getAliasedField(obj, ['amenities', 'Amenities', 'key amenities features', 'Key Amenities / Features']);
     const notes = getAliasedField(obj, ['notes', 'Notes']);
+    const imageUrl = getAliasedField(obj, ['image url', 'Image URL', 'image', 'Image']);
     const authority = getAliasedField(obj, ['authority', 'Authority', 'jurisdiction', 'Jurisdiction', 'location authority', 'Location Authority']) || inferAuthorityFromText([locationSectorArea, address, projectName, notes].filter(Boolean).join(' '));
     const ownership = getAliasedField(obj, ['ownership', 'Ownership', 'ownership type', 'Ownership Type', 'freehold', 'Freehold', 'leasehold', 'Leasehold', 'freehold / leasehold', 'Freehold / Leasehold']) || inferOwnershipFromText([notes, projectName, locationSectorArea, address].filter(Boolean).join(' '));
 
@@ -300,7 +302,14 @@ export function readCSVProjectsFromString(raw: string) {
           price: parsedPrice,
         },
       ],
-      images: { hero: '/images/placeholder-project.jpg', gallery: [], floorPlans: [], masterPlan: '' },
+      images: {
+        hero: (function () {
+          const badDomains = ['housing.com', '99acres.com', 'magicbricks.com', 'squareyards', 'nobroker', 'makaan.com', 'proptiger.com', 'propertywala.com', 'justdial.com', 'olx.in'];
+          const isBad = !imageUrl || badDomains.some(d => imageUrl.toLowerCase().includes(d));
+          return isBad ? getFallbackImage(slug) : imageUrl;
+        })(),
+        gallery: [], floorPlans: [], masterPlan: ''
+      },
       nearbyPlaces: [],
       similarProjects: [],
       isFeatured,
@@ -317,7 +326,7 @@ export function readCSVProjectsFromString(raw: string) {
 export function normalizeDataset(projects: Project[]) {
   const developersMap: Record<string, DeveloperAccumulator> = {};
   const citiesMap: Record<string, CitySummary> = {};
-  const propertyTypesSet = new Set<string>();
+  const propertyTypesMap = new Map<string, string>();
 
   projects.forEach((p) => {
     const developerName = p.builderName || p.developer || 'Unknown Developer';
@@ -366,7 +375,15 @@ export function normalizeDataset(projects: Project[]) {
     developersMap[developerSlug].projectIds.push(p.id);
     developersMap[developerSlug].cityIds.add(citySlug);
     developersMap[developerSlug].localityIds.add(localitySlug);
-    (p.propertyTypes || []).forEach((type: string) => developersMap[developerSlug].propertyTypeIds.add(slugify(type)));
+    (p.propertyTypes || []).forEach((type) => {
+      const typeSlug = slugify(type);
+      if (!typeSlug) return;
+
+      developersMap[developerSlug].propertyTypeIds.add(typeSlug);
+      if (!propertyTypesMap.has(typeSlug)) {
+        propertyTypesMap.set(typeSlug, type.trim());
+      }
+    });
 
     if (p.status === 'ready-to-move') {
       developersMap[developerSlug].completedProjects += 1;
@@ -381,7 +398,6 @@ export function normalizeDataset(projects: Project[]) {
       citiesMap[slug] = citiesMap[slug] || { id: slug, name: p.cityName, slug, count: 0 };
       citiesMap[slug].count += 1;
     }
-    (p.propertyTypes || []).forEach((pt: string) => propertyTypesSet.add(pt));
   });
 
   const developers = Object.values(developersMap).map((developer) => ({
@@ -391,7 +407,7 @@ export function normalizeDataset(projects: Project[]) {
     propertyTypeIds: Array.from(developer.propertyTypeIds || []),
   }));
   const cities = Object.values(citiesMap);
-  const propertyTypes = Array.from(propertyTypesSet).map((name) => ({ id: slugify(name), name, slug: slugify(name) }));
+  const propertyTypes = Array.from(propertyTypesMap.entries()).map(([slug, name]) => ({ id: slug, name, slug }));
 
   return { projects, developers, cities, propertyTypes };
 }

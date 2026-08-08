@@ -58,11 +58,11 @@ const icons = {
   };
 
   return (
-    <section className="bg-muted/40 py-24 sm:py-28">
+    <section className="bg-muted/40 py-10 sm:py-14">
       <Container>
         <SectionHeading title="Property Types" subtitle="Explore the formats that match your requirement, lifestyle, and investment strategy" />
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {propertyTypes.slice(0, 6).map((propertyType, index) => {
             const Icon = icons[(propertyType.slug as keyof typeof icons) ?? "apartment"] ?? Home;
             const projectCount = getPropertyCount(propertyType);
@@ -71,7 +71,7 @@ const icons = {
               <motion.div key={propertyType.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: index * 0.08, duration: 0.4 }}>
                 <Link href={`/property-types/${propertyType.slug}`} className="block h-full">
                   <Card className="group h-full overflow-hidden border-border/80 bg-card/95 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_-28px_rgba(15,23,42,0.24)]">
-                    <CardContent className="p-6">
+                    <CardContent className="p-5">
                       <div className="flex items-center justify-between">
                         <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                           <Icon className="h-5 w-5" />
@@ -79,10 +79,10 @@ const icons = {
                         <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">{projectCount}+ listings</span>
                       </div>
 
-                      <h3 className="mt-5 text-xl font-semibold text-card-foreground transition-colors group-hover:text-primary">{propertyType.name}</h3>
-                      <p className="mt-2 text-sm leading-6 text-muted-foreground">{propertyType.description}</p>
+                      <h3 className="mt-4 text-xl font-semibold text-card-foreground transition-colors group-hover:text-primary">{propertyType.name}</h3>
+                      <p className="mt-1 text-sm leading-6 text-muted-foreground">{propertyType.description}</p>
 
-                      <div className="mt-5 flex items-center justify-between border-t border-border pt-4 text-sm">
+                      <div className="mt-4 flex items-center justify-between border-t border-border pt-4 text-sm">
                         <span className="text-muted-foreground">Handpicked options</span>
                         <span className="inline-flex items-center gap-1 font-medium text-primary">
                           Explore

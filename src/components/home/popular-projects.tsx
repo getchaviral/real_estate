@@ -110,14 +110,14 @@ export default function PopularProjects() {
   };
 
   return (
-    <section className="overflow-hidden bg-slate-50 dark:bg-slate-950 py-12 sm:py-16 lg:py-20">
+    <section className="overflow-hidden bg-slate-50 dark:bg-slate-950 py-6 sm:py-10 lg:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-3xl">
             <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
               Fast Moving Projects
             </h2>
-            <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
+            <p className="mt-2 max-w-2xl text-base leading-7 text-slate-600">
               Discover premium residential and commercial projects across India&apos;s top cities.
             </p>
           </div>
@@ -132,7 +132,7 @@ export default function PopularProjects() {
           </Button>
         </div>
 
-        <div className="mt-7 overflow-x-auto pb-2 scrollbar-hide">
+        <div className="mt-5 overflow-x-auto pb-2 scrollbar-hide">
           <div className="flex min-w-max items-center gap-6 border-b border-slate-200 pr-4 sm:gap-7">
             {cities.map((city) => {
               const isActive = city.name === activeCity;
@@ -160,7 +160,7 @@ export default function PopularProjects() {
           </div>
         </div>
 
-        <div className="relative mt-7">
+        <div className="relative mt-5">
           {filteredProjects.length > 0 ? (
             <>
               <button

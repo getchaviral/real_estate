@@ -65,11 +65,11 @@ export default function TopDevelopers() {
   }, []);
 
   return (
-    <section className="bg-muted/50 py-16 sm:py-20">
+    <section className="bg-muted/50 py-10 sm:py-14">
       <Container>
         <SectionHeading title="Top Builders" subtitle="Builders ranked by active projects." />
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {topDevelopers.map((builder, index) => (
             <motion.div
               key={builder.id}
@@ -80,19 +80,19 @@ export default function TopDevelopers() {
             >
               <Link href={`/developers/${builder.slug}`} className="block h-full">
                 <Card className="group h-full overflow-hidden border-border/70 bg-background/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
-                  <CardContent className="p-6 text-center">
-                    <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 text-primary">
+                  <CardContent className="p-5 text-center">
+                    <div className="mx-auto mb-3 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 text-primary">
                       <Building2 className="h-8 w-8" />
                     </div>
 
                     <h3 className="text-base font-semibold text-card-foreground transition-colors group-hover:text-primary">
                       {builder.name}
                     </h3>
-                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">
                       {builder.totalProjects} projects
                     </p>
 
-                    <div className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-primary">
+                    <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary">
                       View Profile
                       <ArrowRight className="h-4 w-4" />
                     </div>

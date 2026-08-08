@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { getPrimaryMarket, normalizeLocationText, sortPrimaryMarkets } from "@/lib/locationNormalization";
+import { getPrimaryMarket, normalizeLocationText, sortPrimaryMarkets, getFastMovingCities } from "@/lib/locationNormalization";
 
 type CityOption = { name: string; slug: string };
 
@@ -39,22 +39,21 @@ export function MegaMenu() {
       .then((data) => {
         if (!mounted) return;
 
-        const fastMovingNames = new Set<string>();
-        (data.projects || []).forEach((project: { cityName?: string; location?: string; locationSectorArea?: string }) => {
-          const primaryMarket = getPrimaryMarket(project as any) || project.cityName;
-          if (primaryMarket) {
-            fastMovingNames.add(primaryMarket);
-          }
+        const p = (data.projects || []) as any[];
+        const fastMovingCities = getFastMovingCities(p);
+
+        // Map to { name, slug }
+        const cityObjects = fastMovingCities.map((cityName) => {
+          // Find if we have a matching slug in data.cities
+          const match = (data.cities || []).find((c: any) => normalizeLocationText(c.name) === normalizeLocationText(cityName));
+          return {
+            name: cityName,
+            slug: match?.slug || cityName.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+          };
         });
 
-        const cs = (data.cities || [])
-          .map((c: any) => ({ name: c.name, slug: c.slug }))
-          .filter((city: CityOption) => city.name && city.slug && fastMovingNames.has(city.name))
-          .sort((a: CityOption, b: CityOption) => a.name.localeCompare(b.name, 'en-IN', { sensitivity: 'base' }));
-
-        const sortedCities = sortPrimaryMarkets(cs as Array<{ name: string; slug: string }>);
-        setCities(sortedCities);
-        setActiveCity(sortedCities[0] ?? null);
+        setCities(cityObjects);
+        setActiveCity(cityObjects[0] ?? null);
       })
       .catch(() => {
         setCities([]);

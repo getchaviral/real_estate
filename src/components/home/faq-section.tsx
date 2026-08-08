@@ -15,7 +15,7 @@ function FAQItem({ faq, isOpen, onToggle }: { faq: FAQ; isOpen: boolean; onToggl
     <div className="border-b border-border last:border-0">
       <button
         onClick={onToggle}
-        className="flex w-full items-center justify-between gap-4 py-5 text-left transition-colors hover:text-primary"
+        className="flex w-full items-center justify-between gap-4 py-4 text-left transition-colors hover:text-primary"
       >
         <span className="text-base font-medium text-foreground">{faq.question}</span>
         <ChevronDown
@@ -33,7 +33,7 @@ function FAQItem({ faq, isOpen, onToggle }: { faq: FAQ; isOpen: boolean; onToggl
             transition={{ duration: 0.2 }}
             className="overflow-hidden"
           >
-            <p className="pb-5 text-sm leading-relaxed text-muted-foreground">
+            <p className="pb-4 text-sm leading-relaxed text-muted-foreground">
               {faq.answer}
             </p>
           </motion.div>
@@ -47,7 +47,7 @@ export default function FAQSection() {
   const [openId, setOpenId] = useState<string | null>(faqs[0]?.id || null);
 
   return (
-    <section className="py-16 sm:py-20">
+    <section className="py-10 sm:py-14">
       <Container>
         <SectionHeading
           title="Frequently Asked Questions"
@@ -59,9 +59,9 @@ export default function FAQSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mx-auto mt-10 max-w-3xl"
+          className="mx-auto mt-8 max-w-3xl"
         >
-          <div className="rounded-xl border border-border bg-card p-6 shadow-card sm:p-8">
+          <div className="rounded-xl border border-border bg-card p-5 shadow-card sm:p-6">
             {faqs.map((faq) => (
               <FAQItem
                 key={faq.id}
@@ -72,7 +72,7 @@ export default function FAQSection() {
             ))}
           </div>
 
-          <div className="mt-6 text-center">
+          <div className="mt-4 text-center">
             <p className="text-sm text-muted-foreground">
               Still have questions?{" "}
               <a

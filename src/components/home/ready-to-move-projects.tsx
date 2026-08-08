@@ -24,7 +24,7 @@ export default function ReadyToMoveProjects() {
   }, []);
 
   return (
-    <section className="bg-background py-16 sm:py-20">
+    <section className="bg-background py-12 sm:py-16">
       <ProjectCarousel
         title="Ready to Move"
         subtitle="Browse completed homes and immediate possession projects from our portfolio."

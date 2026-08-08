@@ -124,9 +124,11 @@
     font-family: var(--font-inter), sans-serif;
     @apply bg-background text-foreground;
   }
+
   * {
     @apply border-border outline-ring/50;
   }
+
   html {
     @apply font-sans;
   }
@@ -162,6 +164,7 @@
   .shadow-card {
     box-shadow: var(--card-shadow);
   }
+
   .shadow-card-hover {
     box-shadow: var(--card-shadow-hover);
   }
@@ -171,17 +174,21 @@
     background: hsl(var(--hero-search-bg));
     border-color: hsl(var(--hero-search-border));
   }
+
   .hero-search-shell {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08));
     border-color: rgba(255, 255, 255, 0.16);
     box-shadow: 0 24px 60px rgba(2, 6, 23, 0.24);
   }
+
   .hero-search-input {
     color: hsl(var(--hero-search-text));
   }
+
   .hero-search-input::placeholder {
     color: hsl(var(--hero-search-placeholder));
   }
+
   .hero-search-select {
     appearance: none;
     -webkit-appearance: none;
@@ -194,35 +201,42 @@
     color: #0f172a;
     font-family: inherit;
   }
+
   .hero-search-select option {
     padding: 0.7rem 0.9rem;
     background-color: #ffffff;
     color: #0f172a;
     font-family: inherit;
   }
+
   .hero-search-select option:hover,
   .hero-search-select option:focus,
   .hero-search-select option:checked {
     background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
     color: #0f172a;
   }
+
   .hero-status-chip {
     border-color: rgba(255, 255, 255, 0.15);
     background: rgba(255, 255, 255, 0.04);
     color: hsl(var(--hero-muted));
   }
+
   .hero-status-chip:hover {
     background: rgba(255, 255, 255, 0.12);
     color: hsl(var(--hero-foreground));
   }
+
   .hero-status-chip-active {
     border-color: hsl(var(--hero-accent));
     background: rgba(249, 115, 22, 0.16);
     color: hsl(var(--hero-accent));
   }
+
   .hero-suggestion-item {
     color: hsl(var(--hero-foreground));
   }
+
   .hero-suggestion-item:hover {
     background: rgba(255, 255, 255, 0.1);
   }
@@ -232,10 +246,12 @@
     background: hsl(var(--success-bg) / 0.15);
     color: hsl(var(--success-bg));
   }
+
   .badge-warning {
     background: hsl(var(--warning-bg) / 0.15);
     color: hsl(var(--warning-bg));
   }
+
   .badge-error {
     background: hsl(var(--error-bg) / 0.15);
     color: hsl(var(--error-bg));

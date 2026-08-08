@@ -63,10 +63,10 @@ export default function ProjectCarousel({
   return (
     <section className={className}>
       <Container>
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex-1">
             <SectionHeading title={title} subtitle={subtitle} />
-            {extraInfo ? <div className="mt-3">{extraInfo}</div> : null}
+            {extraInfo ? <div className="mt-2">{extraInfo}</div> : null}
           </div>
           <div className="hidden items-center gap-2 sm:flex">
             <button
@@ -92,7 +92,7 @@ export default function ProjectCarousel({
 
         <div
           ref={scrollRef}
-          className="mt-4 flex gap-3 overflow-x-auto pb-2 pl-0.5 pr-0.5 snap-x snap-mandatory scrollbar-hide"
+          className="mt-3 flex gap-3 overflow-x-auto pb-2 pl-0.5 pr-0.5 snap-x snap-mandatory scrollbar-hide"
           style={{ scrollBehavior: "smooth" }}
         >
           {projects.map((project) => (
@@ -103,7 +103,7 @@ export default function ProjectCarousel({
         </div>
 
         {viewAllHref ? (
-          <div className="mt-6 flex justify-start sm:mt-8 sm:justify-end">
+          <div className="mt-4 flex justify-start sm:mt-6 sm:justify-end">
             <Button variant="outline" size="lg" className="gap-2" onClick={() => router.push(viewAllHref)}>
               {viewAllLabel}
               <ArrowRight className="h-4 w-4" />

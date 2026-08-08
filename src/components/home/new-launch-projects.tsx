@@ -24,7 +24,7 @@ export default function NewLaunchProjects() {
   }, []);
 
   return (
-    <section className="bg-background py-16 sm:py-20">
+    <section className="bg-background py-10 sm:py-14">
       <ProjectCarousel
         title="New Launch"
         subtitle="See the latest launches and upcoming projects from our curated portfolio."

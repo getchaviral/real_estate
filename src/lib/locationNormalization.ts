@@ -84,3 +84,16 @@ export function sortPrimaryMarkets<T extends { name: string }>(markets: T[]) {
     return a.name.localeCompare(b.name, "en-IN", { sensitivity: "base" });
   });
 }
+
+export function getFastMovingCities(projects: Project[]): string[] {
+  const marketCounts = new Map<string, number>();
+
+  projects.forEach((project) => {
+    const primaryMarket = getPrimaryMarket(project) || project.cityName;
+    if (!primaryMarket) return;
+    marketCounts.set(primaryMarket, (marketCounts.get(primaryMarket) ?? 0) + 1);
+  });
+
+  const sorted = sortPrimaryMarkets(Array.from(marketCounts, ([name, count]) => ({ name, count })));
+  return sorted.map((s) => s.name);
+}

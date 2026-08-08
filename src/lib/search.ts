@@ -151,6 +151,21 @@ export function getAutocompleteSuggestions(query: string, data: {
     }
   });
 
+  const cityMap = new Map<string, string>();
+  (projectsList || []).forEach((p) => {
+    if (p.cityName) {
+      const normalized = p.cityName.trim().toLowerCase();
+      if (!cityMap.has(normalized)) {
+        cityMap.set(normalized, p.cityName.trim());
+      }
+    }
+  });
+  cityMap.forEach((originalCity, normalizedCity) => {
+    if (normalizedCity.includes(searchTerm)) {
+      suggestions.push({ id: `city-${normalizedCity}`, label: originalCity, value: originalCity, type: 'city', category: 'City' });
+    }
+  });
+
   (developersList || []).forEach((developer) => {
     if (normalize(developer.name).includes(searchTerm)) {
       suggestions.push({ id: `developer-${developer.id}`, label: developer.name, value: developer.name, type: 'developer', category: 'Developers' });

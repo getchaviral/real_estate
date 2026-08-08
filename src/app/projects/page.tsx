@@ -8,8 +8,7 @@ import SectionHeading from "@/components/shared/section-heading";
 import Filters from "@/components/projects/filters";
 import ProjectList from "@/components/projects/project-list";
 import { Button } from "@/components/ui/button";
-import { PRIMARY_MARKETS } from "@/lib/locationNormalization";
-import type { ProjectFilters } from "@/types/project";
+import type { ProjectFilters, Project } from "@/types/project";
 
 function getFiltersFromParams(searchParams: URLSearchParams | { get: (key: string) => string | null }): ProjectFilters {
   const authority = searchParams.get("authority") || undefined;
@@ -52,6 +51,26 @@ function ProjectsPageContent() {
   const [appliedFilters, setAppliedFilters] = useState<ProjectFilters>(initialFilters);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [projectCount, setProjectCount] = useState(0);
+  const [cityOptions, setCityOptions] = useState<string[]>([]);
+
+  useEffect(() => {
+    let mounted = true;
+    fetch('/api/data')
+      .then((r) => r.json())
+      .then((data) => {
+        if (!mounted) return;
+        const cityMap = new Map<string, string>();
+        (data.projects || []).forEach((p: Project) => {
+          if (p.cityName) {
+            const norm = p.cityName.trim().toLowerCase();
+            if (!cityMap.has(norm)) cityMap.set(norm, p.cityName.trim());
+          }
+        });
+        setCityOptions(Array.from(cityMap.values()).sort());
+      })
+      .catch(() => {});
+    return () => { mounted = false; };
+  }, []);
 
   useEffect(() => {
     const nextFilters = getFiltersFromParams(searchParams);
@@ -126,7 +145,7 @@ function ProjectsPageContent() {
         >
           All Cities
         </Button>
-        {PRIMARY_MARKETS.map((city) => {
+        {cityOptions.map((city) => {
           const selected = activeCity.toLowerCase() === city.toLowerCase();
           return (
             <Button

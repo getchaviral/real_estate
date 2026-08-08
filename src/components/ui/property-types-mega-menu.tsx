@@ -29,9 +29,9 @@ export function PropertyTypesMegaMenu() {
           <NavigationMenuTrigger>Property Types</NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="grid w-[400px] gap-3 p-4 md:grid-cols-2">
-              {propertyTypes.map((property) => (
+              {propertyTypes.map((property, index) => (
                 <Link
-                  key={property.slug}
+                  key={`${property.slug}-${index}`}
                   href={`/property-types/${property.slug}`}
                   className={cn(
                     "block p-2 rounded-md hover:bg-muted",

@@ -1,16 +1,26 @@
 "use client";
 
-import { useMemo } from "react";
-import { Search, SlidersHorizontal } from "lucide-react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useMemo, useEffect, useState } from "react";
+import {
+  Search,
+  SlidersHorizontal,
+} from "lucide-react";
+
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+
 import type { ProjectFilters } from "@/types/project";
-import { useEffect, useState } from "react";
 import type { Developer } from "@/types/developer";
 import type { Project } from "@/types/project";
-import { PRIMARY_MARKETS } from "@/lib/locationNormalization";
 
 interface FiltersProps {
   filters: ProjectFilters;
@@ -38,68 +48,192 @@ const sortOptions = [
   { value: "newest", label: "Newest First" },
 ];
 
-export default function Filters({ filters, onFiltersChange, onApply }: FiltersProps) {
+export default function Filters({
+  filters,
+  onFiltersChange,
+  onApply,
+}: FiltersProps) {
   const [projects, setProjects] = useState<Project[]>([]);
   const [developers, setDevelopers] = useState<Developer[]>([]);
 
   useEffect(() => {
     let mounted = true;
-    fetch('/api/data')
-      .then((r) => r.json())
+
+    fetch("/api/data")
+      .then((response) => response.json())
       .then((data) => {
         if (!mounted) return;
+
         setProjects((data.projects || []) as Project[]);
         setDevelopers((data.developers || []) as Developer[]);
       })
-      .catch(() => {});
-    return () => { mounted = false; };
+      .catch(() => { });
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
-  const cityOptions = useMemo(() => [...PRIMARY_MARKETS], []);
-  const developerOptions = useMemo(() => developers.map((developer) => developer.name).sort(), [developers]);
-  const propertyTypeOptions = useMemo(() => Array.from(new Set(projects.flatMap((project) => project.propertyTypes || project.propertyType || []))).sort(), [projects]);
-  const bhkOptions = useMemo(() => Array.from(new Set(projects.flatMap((project) => (project.configurations || []).map((config: any) => config.type)))).sort(), [projects]);
+  const cityOptions = useMemo(() => {
+    const cityMap = new Map<string, string>();
 
-  const updateFilter = (key: keyof ProjectFilters, value: string | undefined) => {
-    onFiltersChange({ ...filters, [key]: value || undefined });
+    projects.forEach((project) => {
+      if (!project.cityName) return;
+
+      const city = project.cityName.trim();
+      const normalized = city.toLowerCase();
+
+      if (!cityMap.has(normalized)) {
+        cityMap.set(normalized, city);
+      }
+    });
+
+    return Array.from(cityMap.values()).sort();
+  }, [projects]);
+
+  const developerOptions = useMemo(
+    () =>
+      developers
+        .map((developer) => developer.name)
+        .filter(Boolean)
+        .sort(),
+    [developers]
+  );
+
+  const propertyTypeOptions = useMemo(() => {
+    const types = projects.flatMap(
+      (project) =>
+        project.propertyTypes ||
+        project.propertyType ||
+        []
+    );
+
+    return Array.from(new Set(types)).sort();
+  }, [projects]);
+
+  const bhkOptions = useMemo(() => {
+    const bhks = projects.flatMap((project) =>
+      (project.configurations || []).map(
+        (config: any) => config.type
+      )
+    );
+
+    return Array.from(new Set(bhks))
+      .filter(Boolean)
+      .sort();
+  }, [projects]);
+
+  const updateFilter = (
+    key: keyof ProjectFilters,
+    value: string | undefined
+  ) => {
+    onFiltersChange({
+      ...filters,
+      [key]: value || undefined,
+    });
   };
 
-  const updateRange = (key: "budgetMin" | "budgetMax", value: string) => {
+  const updateRange = (
+    key: "budgetMin" | "budgetMax",
+    value: string
+  ) => {
     const parsed = Number(value);
-    onFiltersChange({ ...filters, [key]: Number.isNaN(parsed) ? undefined : parsed });
+
+    onFiltersChange({
+      ...filters,
+      [key]: Number.isNaN(parsed) ? undefined : parsed,
+    });
   };
+
+  const selectClass =
+    "relative z-20 w-full";
 
   return (
-    <Card className="border-border/70 bg-card/80">
-      <CardContent className="p-5 sm:p-6">
+    <Card
+      className="
+        relative z-30
+        overflow-visible
+        border-border/70
+        bg-card/95
+        shadow-sm
+      "
+    >
+      <CardContent className="relative z-30 overflow-visible p-5 sm:p-6">
+
+        {/* Header */}
         <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
           <SlidersHorizontal className="h-4 w-4 text-primary" />
           <span>Filter & refine your search</span>
         </div>
 
-        <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
-          <div className="md:col-span-2 xl:col-span-2">
-            <label className="mb-2 block text-sm font-medium text-foreground">Search</label>
+        {/* Filters */}
+        <div
+          className="
+            relative z-30 mt-5
+            grid grid-cols-1 gap-4
+            overflow-visible
+            md:grid-cols-2
+            xl:grid-cols-4
+          "
+        >
+
+          {/* Search */}
+          <div className="relative z-10 md:col-span-2 xl:col-span-2">
+            <label className="mb-2 block text-sm font-medium text-foreground">
+              Search
+            </label>
+
             <div className="relative">
-              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Search
+                className="
+                  pointer-events-none
+                  absolute left-3 top-1/2
+                  h-4 w-4
+                  -translate-y-1/2
+                  text-muted-foreground
+                "
+              />
+
               <Input
                 value={filters.query ?? ""}
-                onChange={(event) => onFiltersChange({ ...filters, query: event.target.value })}
+                onChange={(event) =>
+                  onFiltersChange({
+                    ...filters,
+                    query: event.target.value,
+                  })
+                }
                 placeholder="Search by city, locality, project..."
-                className="pl-9"
+                className="h-10 pl-9"
               />
             </div>
           </div>
 
-          <div>
-            <label className="mb-2 block text-sm font-medium text-foreground">Sort By</label>
-            <Select value={filters.sortBy ?? "relevance"} onValueChange={(value) => onFiltersChange({ ...filters, sortBy: value as ProjectFilters["sortBy"] })}>
+          {/* Sort */}
+          <div className={selectClass}>
+            <label className="mb-2 block text-sm font-medium text-foreground">
+              Sort By
+            </label>
+
+            <Select
+              value={filters.sortBy ?? "relevance"}
+              onValueChange={(value) =>
+                onFiltersChange({
+                  ...filters,
+                  sortBy:
+                    value as ProjectFilters["sortBy"],
+                })
+              }
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Sort By" />
               </SelectTrigger>
+
               <SelectContent>
                 {sortOptions.map((option) => (
-                  <SelectItem key={option.value} value={option.value}>
+                  <SelectItem
+                    key={option.value}
+                    value={option.value}
+                  >
                     {option.label}
                   </SelectItem>
                 ))}
@@ -107,19 +241,41 @@ export default function Filters({ filters, onFiltersChange, onApply }: FiltersPr
             </Select>
           </div>
 
-          <div>
-            <label className="mb-2 block text-sm font-medium text-foreground">Budget</label>
-            <Select value={filters.budgetMin && filters.budgetMax ? `${filters.budgetMin}-${filters.budgetMax}` : ""} onValueChange={(value) => {
-              const match = value.split("-");
-              updateRange("budgetMin", match[0]);
-              updateRange("budgetMax", match[1]);
-            }}>
+          {/* Budget */}
+          <div className={selectClass}>
+            <label className="mb-2 block text-sm font-medium text-foreground">
+              Budget
+            </label>
+
+            <Select
+              value={
+                filters.budgetMin !== undefined &&
+                  filters.budgetMax !== undefined
+                  ? `${filters.budgetMin}-${filters.budgetMax}`
+                  : ""
+              }
+              onValueChange={(value) => {
+                const match = value.split("-");
+
+                if (match.length === 2) {
+                  onFiltersChange({
+                    ...filters,
+                    budgetMin: Number(match[0]),
+                    budgetMax: Number(match[1]),
+                  });
+                }
+              }}
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Select Budget" />
               </SelectTrigger>
+
               <SelectContent>
                 {budgetOptions.map((option) => (
-                  <SelectItem key={option.value} value={option.value}>
+                  <SelectItem
+                    key={option.value}
+                    value={option.value}
+                  >
                     {option.label}
                   </SelectItem>
                 ))}
@@ -127,16 +283,32 @@ export default function Filters({ filters, onFiltersChange, onApply }: FiltersPr
             </Select>
           </div>
 
-          <div>
-            <label className="mb-2 block text-sm font-medium text-foreground">City</label>
-            <Select value={filters.city ?? ""} onValueChange={(value) => updateFilter("city", value)}>
+          {/* City */}
+          <div className={selectClass}>
+            <label className="mb-2 block text-sm font-medium text-foreground">
+              City
+            </label>
+
+            <Select
+              value={filters.city ?? ""}
+              onValueChange={(value) =>
+                updateFilter("city", value)
+              }
+            >
               <SelectTrigger>
                 <SelectValue placeholder="All Cities" />
               </SelectTrigger>
+
               <SelectContent>
-                <SelectItem value="">All Cities</SelectItem>
+                <SelectItem value="">
+                  All Cities
+                </SelectItem>
+
                 {cityOptions.map((city) => (
-                  <SelectItem key={city} value={city}>
+                  <SelectItem
+                    key={city}
+                    value={city}
+                  >
                     {city}
                   </SelectItem>
                 ))}
@@ -144,16 +316,32 @@ export default function Filters({ filters, onFiltersChange, onApply }: FiltersPr
             </Select>
           </div>
 
-          <div>
-            <label className="mb-2 block text-sm font-medium text-foreground">Developer</label>
-            <Select value={filters.developer ?? ""} onValueChange={(value) => updateFilter("developer", value)}>
+          {/* Developer */}
+          <div className={selectClass}>
+            <label className="mb-2 block text-sm font-medium text-foreground">
+              Developer
+            </label>
+
+            <Select
+              value={filters.developer ?? ""}
+              onValueChange={(value) =>
+                updateFilter("developer", value)
+              }
+            >
               <SelectTrigger>
                 <SelectValue placeholder="All Developers" />
               </SelectTrigger>
+
               <SelectContent>
-                <SelectItem value="">All Developers</SelectItem>
+                <SelectItem value="">
+                  All Developers
+                </SelectItem>
+
                 {developerOptions.map((developer) => (
-                  <SelectItem key={developer} value={developer}>
+                  <SelectItem
+                    key={developer}
+                    value={developer}
+                  >
                     {developer}
                   </SelectItem>
                 ))}
@@ -161,50 +349,110 @@ export default function Filters({ filters, onFiltersChange, onApply }: FiltersPr
             </Select>
           </div>
 
-          <div>
-            <label className="mb-2 block text-sm font-medium text-foreground">Property Type</label>
-            <Select value={filters.propertyType?.[0] ?? ""} onValueChange={(value) => onFiltersChange({ ...filters, propertyType: value ? [value] : undefined })}>
+          {/* Property Type */}
+          <div className={selectClass}>
+            <label className="mb-2 block text-sm font-medium text-foreground">
+              Property Type
+            </label>
+
+            <Select
+              value={filters.propertyType?.[0] ?? ""}
+              onValueChange={(value) =>
+                onFiltersChange({
+                  ...filters,
+                  propertyType: value
+                    ? [value]
+                    : undefined,
+                })
+              }
+            >
               <SelectTrigger>
                 <SelectValue placeholder="All Types" />
               </SelectTrigger>
+
               <SelectContent>
-                <SelectItem value="">All Types</SelectItem>
-                {propertyTypeOptions.map((propertyType) => (
-                  <SelectItem key={propertyType} value={propertyType}>
-                    {propertyType}
-                  </SelectItem>
-                ))}
+                <SelectItem value="">
+                  All Types
+                </SelectItem>
+
+                {propertyTypeOptions.map(
+                  (propertyType) => (
+                    <SelectItem
+                      key={propertyType}
+                      value={propertyType}
+                    >
+                      {propertyType}
+                    </SelectItem>
+                  )
+                )}
               </SelectContent>
             </Select>
           </div>
 
-          <div>
-            <label className="mb-2 block text-sm font-medium text-foreground">Project Status</label>
-            <Select value={filters.status ?? ""} onValueChange={(value) => updateFilter("status", value)}>
+          {/* Project Status */}
+          <div className={selectClass}>
+            <label className="mb-2 block text-sm font-medium text-foreground">
+              Project Status
+            </label>
+
+            <Select
+              value={filters.status ?? ""}
+              onValueChange={(value) =>
+                updateFilter("status", value)
+              }
+            >
               <SelectTrigger>
                 <SelectValue placeholder="All Statuses" />
               </SelectTrigger>
+
               <SelectContent>
-                <SelectItem value="">All Statuses</SelectItem>
-                {projectStatusOptions.map((option) => (
-                  <SelectItem key={option.value} value={option.value}>
-                    {option.label}
-                  </SelectItem>
-                ))}
+                <SelectItem value="">
+                  All Statuses
+                </SelectItem>
+
+                {projectStatusOptions.map(
+                  (option) => (
+                    <SelectItem
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.label}
+                    </SelectItem>
+                  )
+                )}
               </SelectContent>
             </Select>
           </div>
 
-          <div>
-            <label className="mb-2 block text-sm font-medium text-foreground">BHK</label>
-            <Select value={filters.bhk?.[0] ?? ""} onValueChange={(value) => onFiltersChange({ ...filters, bhk: value ? [value] : undefined })}>
+          {/* BHK */}
+          <div className={selectClass}>
+            <label className="mb-2 block text-sm font-medium text-foreground">
+              BHK
+            </label>
+
+            <Select
+              value={filters.bhk?.[0] ?? ""}
+              onValueChange={(value) =>
+                onFiltersChange({
+                  ...filters,
+                  bhk: value ? [value] : undefined,
+                })
+              }
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Any BHK" />
               </SelectTrigger>
+
               <SelectContent>
-                <SelectItem value="">Any BHK</SelectItem>
+                <SelectItem value="">
+                  Any BHK
+                </SelectItem>
+
                 {bhkOptions.map((bhk) => (
-                  <SelectItem key={bhk} value={bhk}>
+                  <SelectItem
+                    key={bhk}
+                    value={bhk}
+                  >
                     {bhk}
                   </SelectItem>
                 ))}
@@ -213,13 +461,30 @@ export default function Filters({ filters, onFiltersChange, onApply }: FiltersPr
           </div>
         </div>
 
-        <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-border/70 pt-4">
-          <p className="text-sm text-muted-foreground">Use the filters to narrow by location, budget, status, and configuration.</p>
-          <Button onClick={onApply} className="gap-2">
+        {/* Bottom */}
+        <div
+          className="
+            relative z-10 mt-5
+            flex flex-wrap items-center
+            justify-between gap-3
+            border-t border-border/70
+            pt-4
+          "
+        >
+          <p className="text-sm text-muted-foreground">
+            Use the filters to narrow by location,
+            budget, status, and configuration.
+          </p>
+
+          <Button
+            onClick={onApply}
+            className="gap-2"
+          >
             <Search className="h-4 w-4" />
             Apply Filters
           </Button>
         </div>
+
       </CardContent>
     </Card>
   );

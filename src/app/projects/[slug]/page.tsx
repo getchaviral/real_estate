@@ -27,6 +27,7 @@ import { loadCSVProjects } from "@/services/csv-project-service";
 import { normalizeDataset } from "@/lib/csvData";
 import { formatPriceRange, getStatusColor } from "@/lib/utils";
 import { PROJECT_STATUS_LABELS } from "@/lib/constants";
+import { getFallbackImage } from "@/lib/fallback-images";
 import type { Project } from "@/types/project";
 
 interface ProjectDetailPageProps {
@@ -62,11 +63,11 @@ function formatProjectPrice(project: Project) {
 function getPrimaryImage(project: Project) {
   const image = project.images?.hero;
 
-  if (image && image !== "/images/placeholder-project.jpg") {
+  if (image && image !== "/images/placeholder-project.jpg" && image !== "/images/property-card-bg.svg") {
     return image;
   }
 
-  return "/images/property-card-bg.svg";
+  return getFallbackImage(project.slug);
 }
 
 function getProjectFacts(project: Project) {
