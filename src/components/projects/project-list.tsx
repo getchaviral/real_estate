@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import ProjectCard from "@/components/shared/project-card";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import { getProjects } from "@/services/project-client-service";
@@ -35,7 +36,7 @@ export default function ProjectList({ filters, page, onPageChange, onCountChange
     return () => {
       isMounted = false;
     };
-  }, [filters, page]);
+  }, [filters, page, onCountChange]);
 
   if (loading) {
     return (
@@ -58,8 +59,15 @@ export default function ProjectList({ filters, page, onPageChange, onCountChange
   return (
     <div className="space-y-8">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+        {projects.map((project, index) => (
+          <motion.div
+            key={project.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <ProjectCard project={project} />
+          </motion.div>
         ))}
       </div>
 
