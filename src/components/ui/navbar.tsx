@@ -32,6 +32,24 @@ export function Navbar() {
     [pathname, router]
   );
 
+  // Active state helpers
+  const isHome = pathname === "/";
+  const isProjects = pathname === "/projects" || pathname.startsWith("/projects/");
+  const isDevelopers = pathname.startsWith("/developers");
+  const isLocations = pathname === "/locations" || pathname.startsWith("/locations/");
+  const isPropertyTypes = pathname === "/property-types" || pathname.startsWith("/property-types/");
+  const isContact = pathname === "/contact" || pathname.startsWith("/contact/");
+
+  const activeLinkClass =
+    "text-sm font-semibold text-foreground transition-colors";
+  const inactiveLinkClass =
+    "text-sm font-medium text-muted-foreground hover:text-foreground transition-colors";
+
+  const mobileActiveLinkClass =
+    "px-2 py-1 text-sm font-semibold text-foreground transition-colors";
+  const mobileInactiveLinkClass =
+    "px-2 py-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors";
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/95 backdrop-blur-xl shadow-sm">
       <Container>
@@ -45,33 +63,33 @@ export function Navbar() {
           <nav className="hidden md:flex items-center gap-6">
             <Link
               href="/"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className={isHome ? activeLinkClass : inactiveLinkClass}
             >
               Home
             </Link>
 
             <Link
               href="/projects"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className={isProjects ? activeLinkClass : inactiveLinkClass}
             >
               Projects
             </Link>
 
             <Link
               href="/#top-developers"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className={isDevelopers ? activeLinkClass : inactiveLinkClass}
               onClick={handleDeveloperClick}
             >
               Developers
             </Link>
 
-            <MegaMenu />
+            <MegaMenu isActive={isLocations} />
 
-            <PropertyTypesMegaMenu />
+            <PropertyTypesMegaMenu isActive={isPropertyTypes} />
 
             <Link
               href="/contact"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className={isContact ? activeLinkClass : inactiveLinkClass}
             >
               Contact
             </Link>
@@ -98,7 +116,7 @@ export function Navbar() {
             <nav className="flex flex-col gap-3">
               <Link
                 href="/"
-                className="px-2 py-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className={isHome ? mobileActiveLinkClass : mobileInactiveLinkClass}
                 onClick={() => setIsOpen(false)}
               >
                 Home
@@ -106,7 +124,7 @@ export function Navbar() {
 
               <Link
                 href="/projects"
-                className="px-2 py-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className={isProjects ? mobileActiveLinkClass : mobileInactiveLinkClass}
                 onClick={() => setIsOpen(false)}
               >
                 Projects
@@ -114,7 +132,7 @@ export function Navbar() {
 
               <Link
                 href="/#top-developers"
-                className="px-2 py-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className={isDevelopers ? mobileActiveLinkClass : mobileInactiveLinkClass}
                 onClick={(event) => {
                   setIsOpen(false);
                   handleDeveloperClick(event);
@@ -125,15 +143,23 @@ export function Navbar() {
 
               <Link
                 href="/locations"
-                className="px-2 py-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className={isLocations ? mobileActiveLinkClass : mobileInactiveLinkClass}
                 onClick={() => setIsOpen(false)}
               >
                 Locations
               </Link>
 
               <Link
+                href="/property-types"
+                className={isPropertyTypes ? mobileActiveLinkClass : mobileInactiveLinkClass}
+                onClick={() => setIsOpen(false)}
+              >
+                Property Types
+              </Link>
+
+              <Link
                 href="/contact"
-                className="px-2 py-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className={isContact ? mobileActiveLinkClass : mobileInactiveLinkClass}
                 onClick={() => setIsOpen(false)}
               >
                 Contact
