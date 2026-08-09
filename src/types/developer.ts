@@ -19,9 +19,6 @@ export interface DeveloperAward {
   title: string;
   organization: string;
 }
-  title: string;
-  organization: string;
-}
 
 export interface Developer {
   id: string;
