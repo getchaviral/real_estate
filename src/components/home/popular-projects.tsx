@@ -110,7 +110,7 @@ export default function PopularProjects() {
   };
 
   return (
-    <section className="overflow-hidden bg-slate-50 dark:bg-slate-950 py-6 sm:py-10 lg:py-14">
+    <section className="overflow-hidden bg-slate-50 dark:bg-slate-950 py-6 sm:py-8 lg:py-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-3xl">

@@ -58,7 +58,7 @@ const icons = {
   };
 
   return (
-    <section className="bg-muted/40 py-10 sm:py-14">
+    <section id="property-types" className="bg-muted/40 py-8 sm:py-10">
       <Container>
         <SectionHeading title="Property Types" subtitle="Explore the formats that match your requirement, lifestyle, and investment strategy" />
 

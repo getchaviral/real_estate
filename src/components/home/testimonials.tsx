@@ -22,7 +22,7 @@ export default function Testimonials() {
   if (featured.length === 0) return null;
 
   return (
-    <section className="py-10 sm:py-14">
+    <section className="py-8 sm:py-10">
       <Container>
         <SectionHeading title="Client Stories" subtitle="Trusted by first-time buyers, families, and investors across India" />
 

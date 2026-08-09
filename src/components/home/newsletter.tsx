@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 
 export default function Newsletter() {
   return (
-    <section className="py-10 sm:py-14">
+    <section className="py-8 sm:py-10">
       <Container>
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.45 }}>
           <Card className="overflow-hidden border-border/70 bg-card/80">

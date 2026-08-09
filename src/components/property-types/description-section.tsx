@@ -5,13 +5,18 @@ import type { PropertyType } from "@/types/property-type";
 
 interface PropertyTypeDescriptionSectionProps {
   propertyType: PropertyType;
+  title?: string;
+  subtitle?: string;
 }
 
-export default function PropertyTypeDescriptionSection({ propertyType }: PropertyTypeDescriptionSectionProps) {
+export default function PropertyTypeDescriptionSection({ propertyType, title, subtitle }: PropertyTypeDescriptionSectionProps) {
+  const headingTitle = title ?? `${propertyType.name} at a Glance`;
+  const headingSubtitle = subtitle ?? "A curated collection for buyers, investors, and business owners";
+
   return (
     <section id="description" className="py-16 sm:py-20">
       <Container>
-        <SectionHeading title={`${propertyType.name} at a Glance`} subtitle="A curated collection for buyers, investors, and business owners" align="left" />
+        <SectionHeading title={headingTitle} subtitle={headingSubtitle} align="left" />
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <Card className="border-border/70 bg-card/80">
             <CardContent className="p-6">

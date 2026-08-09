@@ -28,7 +28,6 @@ const homeSections = [
   PropertyTypes,
   ReadyToMoveProjects,
   UnderConstructionProjects,
-  WhyChooseUs,
   HomeLoanCTA,
   MarketInsights,
   LatestBlogs,
@@ -41,15 +40,17 @@ const homeSections = [
 export default function Home() {
   return (
     <div className="overflow-hidden bg-background">
-      {homeSections.map((Section, index) => (
-        <div key={`section-${index}`} className={`relative ${index % 2 === 0 ? "bg-background" : "bg-muted/40"}`} style={{ zIndex: homeSections.length - index }}>
-          <Section />
-          {index < homeSections.length - 1 && (
-            <div className="mx-auto h-px w-full max-w-7xl bg-gradient-to-r from-transparent via-border/70 to-transparent" />
-          )}
-        </div>
-      ))}
+      {homeSections.map((Section, index) => {
+        const sectionId = Section === TopDevelopers ? "top-developers" : undefined;
+        return (
+          <div id={sectionId} key={`section-${index}`} className={`${index % 2 === 0 ? "bg-background" : "bg-muted/40"}`}>
+            <Section />
+            {index < homeSections.length - 1 && (
+              <div className="mx-auto h-px w-full max-w-7xl bg-gradient-to-r from-transparent via-border/70 to-transparent" />
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }
-

@@ -16,10 +16,10 @@ export default function LocationSectionShell({
   className = "",
 }: LocationSectionShellProps) {
   return (
-    <section className={`py-16 sm:py-20 ${className}`.trim()}>
+    <section className={`py-10 sm:py-14 ${className}`.trim()}>
       <Container>
         <SectionHeading title={title} subtitle={subtitle} />
-        <div className="mt-10">{children}</div>
+        <div className="mt-8">{children}</div>
       </Container>
     </section>
   );

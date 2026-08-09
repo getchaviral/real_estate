@@ -33,7 +33,7 @@ export default function DeveloperFAQSection({ faqs }: DeveloperFAQSectionProps) 
   const [openId, setOpenId] = useState<string | null>(faqs[0]?.id ?? null);
 
   return (
-    <section id="faqs" className="py-16 sm:py-20">
+    <section id="faqs" className="py-12 sm:py-16">
       <Container>
         <SectionHeading title="FAQs" subtitle="Common questions about this developer and their projects" align="left" />
         <div className="mt-10 mx-auto max-w-3xl rounded-2xl border border-border/70 bg-card/80 p-6 shadow-card sm:p-8">

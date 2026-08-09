@@ -28,7 +28,11 @@ const citySections = [
   "Under Construction",
 ];
 
-export function MegaMenu() {
+type MegaMenuProps = {
+  isActive?: boolean;
+};
+
+export function MegaMenu({ isActive = false }: MegaMenuProps) {
   const [activeCity, setActiveCity] = useState<CityOption | null>(null);
   const [cities, setCities] = useState<CityOption[]>(defaultCities);
 
@@ -66,7 +70,14 @@ export function MegaMenu() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Locations</NavigationMenuTrigger>
+          <NavigationMenuTrigger
+            className={cn(
+              isActive &&
+                "bg-muted text-foreground font-semibold hover:text-foreground"
+            )}
+          >
+            Locations
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="grid w-[600px] grid-cols-3 gap-4 p-4">
               <div className="col-span-1">

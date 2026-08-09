@@ -137,7 +137,7 @@ export default function FeaturedProjects() {
   return (
     <section className="w-full bg-slate-50 py-10">
       <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
-        <div className="mb-6 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="mb-4 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
@@ -170,7 +170,7 @@ export default function FeaturedProjects() {
 
         <LocationTabs cities={cityOptions} activeCity={selectedCity} onChange={setSelectedCity} />
 
-        <div className="relative mt-8 overflow-hidden rounded-[2rem] bg-white px-4 py-6 shadow-[0_18px_60px_-36px_rgba(15,23,42,0.25)] sm:px-6">
+        <div className="relative mt-6 overflow-hidden rounded-[2rem] bg-white px-4 py-6 shadow-[0_18px_60px_-36px_rgba(15,23,42,0.25)] sm:px-6">
           <div className="absolute right-4 top-1/2 z-20 flex -translate-y-1/2 gap-3">
             <button
               type="button"

@@ -10,7 +10,9 @@ interface DeveloperProjectGroupsProps {
 
 export default function DeveloperProjectGroups({ projects }: DeveloperProjectGroupsProps) {
   const allProjects = projects;
-  const newLaunchProjects = projects.filter((project) => project.status === "new-launch");
+  const newLaunchProjects = projects.filter(
+    (project) => project.status === "new-launch" || project.isNewLaunch
+  );
   const readyToMoveProjects = projects.filter((project) => project.status === "ready-to-move");
   const underConstructionProjects = projects.filter((project) => project.status === "under-construction");
   const completedProjects = projects.filter((project) => project.status === "ready-to-move");
@@ -24,12 +26,14 @@ export default function DeveloperProjectGroups({ projects }: DeveloperProjectGro
         limit={6}
       />
 
-      <ProjectShowcaseSection
-        title="New Launch"
-        subtitle="Latest offerings designed for modern buyers"
-        projects={newLaunchProjects}
-        limit={3}
-      />
+      {newLaunchProjects.length > 0 && (
+        <ProjectShowcaseSection
+          title="New Launch"
+          subtitle="Latest offerings designed for modern buyers"
+          projects={newLaunchProjects}
+          limit={3}
+        />
+      )}
 
       <ProjectShowcaseSection
         title="Ready to Move"

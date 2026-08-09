@@ -30,11 +30,11 @@ export default function PopularCities() {
   }, []);
 
   return (
-    <section className="py-24 sm:py-28">
+    <section className="py-12 sm:py-16">
       <Container>
         <SectionHeading title="Popular Cities" subtitle="High-growth urban markets with premium projects, proven developers, and strong long-term demand" />
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {popularLocations.map((location, index) => (
             <motion.div key={location.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: index * 0.08, duration: 0.4 }}>
               <Link href={`/locations/${location.slug}`} className="block h-full">

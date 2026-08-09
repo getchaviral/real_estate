@@ -41,14 +41,14 @@ export default function ExploreProjects() {
   if (!categories.length) return null;
 
   return (
-    <section className="bg-background py-10 sm:py-14">
+    <section className="bg-background py-8 sm:py-10">
       <Container>
         <SectionHeading
           title="Explore by Buying Goal"
           subtitle="Find projects based on location authority, ownership, and investment preference."
         />
 
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-5 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {categories.map((category) => {
             const Icon = category.icon;
             return (

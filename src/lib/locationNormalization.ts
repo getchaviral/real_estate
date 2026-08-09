@@ -34,6 +34,18 @@ export function normalizeLocationText(text?: string) {
     .trim();
 }
 
+function slugifyLocation(text?: string) {
+  return (
+    (text || "")
+      .toString()
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-")
+  );
+}
+
 export function getPrimaryMarket(project: Project) {
   const rawText = `${project.locationSectorArea || ""} ${project.location || ""} ${project.cityName || ""}`;
   const normalized = normalizeLocationText(rawText);
@@ -56,21 +68,28 @@ export function getPrimaryMarket(project: Project) {
 
 export function matchesPrimaryMarket(project: Project, market: string) {
   const target = normalizeLocationText(market);
+  const targetSlug = slugifyLocation(market);
   if (!target) return false;
 
   const candidates = [
     getPrimaryMarket(project),
     project.cityName,
-    project.locality,
-    project.location,
-    project.locationSectorArea,
-    project.address,
+    project.cityId,
   ].filter(Boolean) as string[];
 
   return candidates.some((value) => {
     const normalizedValue = normalizeLocationText(value);
-    return normalizedValue === target || normalizedValue.includes(target) || target.includes(normalizedValue);
+    return normalizedValue === target || slugifyLocation(value) === targetSlug;
   });
+}
+
+export function matchesProjectLocationSlug(project: Project, locationSlug: string) {
+  const targetSlug = slugifyLocation(locationSlug);
+  if (!targetSlug) return false;
+
+  return [project.cityId, project.cityName, getPrimaryMarket(project)]
+    .filter(Boolean)
+    .some((value) => slugifyLocation(value) === targetSlug);
 }
 
 export function sortPrimaryMarkets<T extends { name: string }>(markets: T[]) {

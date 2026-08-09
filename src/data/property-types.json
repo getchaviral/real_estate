@@ -4,7 +4,7 @@
     "slug": "apartments",
     "name": "Apartments",
     "description": "Modern and comfortable apartments in various configurations.",
-    "heroImage": "/images/property-types/apartments.jpg",
+    "heroImage": "https://images.pexels.com/photos/373508/pexels-photo-373508.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "relatedProjectIds": ["proj-001", "proj-002", "proj-003", "proj-004", "proj-005", "proj-006"],
     "relatedDeveloperIds": ["dev-001", "dev-002", "dev-003", "dev-004"],
     "relatedLocationIds": ["city-001", "city-002", "city-003", "city-004", "city-005"]
@@ -14,7 +14,7 @@
     "slug": "villas",
     "name": "Villas",
     "description": "Luxurious and spacious villas with premium amenities.",
-    "heroImage": "/images/property-types/villas.jpg",
+    "heroImage": "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "relatedProjectIds": ["proj-002", "proj-003"],
     "relatedDeveloperIds": ["dev-001", "dev-002"],
     "relatedLocationIds": ["city-001", "city-002", "city-004"]
@@ -24,7 +24,7 @@
     "slug": "plots",
     "name": "Plots",
     "description": "Residential and commercial plots for building your dream property.",
-    "heroImage": "/images/property-types/plots.jpg",
+    "heroImage": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "relatedProjectIds": ["proj-005", "proj-006"],
     "relatedDeveloperIds": ["dev-002", "dev-004"],
     "relatedLocationIds": ["city-004", "city-005"]
@@ -34,7 +34,7 @@
     "slug": "commercial",
     "name": "Commercial",
     "description": "Commercial properties for businesses and investment.",
-    "heroImage": "/images/property-types/commercial.jpg",
+    "heroImage": "https://images.pexels.com/photos/373965/pexels-photo-373965.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "relatedProjectIds": ["proj-003", "proj-006"],
     "relatedDeveloperIds": ["dev-002", "dev-004"],
     "relatedLocationIds": ["city-002", "city-005"]
@@ -44,7 +44,7 @@
     "slug": "office-spaces",
     "name": "Office Spaces",
     "description": "Modern office spaces in prime business locations.",
-    "heroImage": "/images/property-types/office-spaces.jpg",
+    "heroImage": "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "relatedProjectIds": ["proj-003", "proj-006"],
     "relatedDeveloperIds": ["dev-002", "dev-004"],
     "relatedLocationIds": ["city-002", "city-005"]
@@ -54,7 +54,7 @@
     "slug": "retail-shops",
     "name": "Retail Shops",
     "description": "Retail shops in high-traffic areas for your business.",
-    "heroImage": "/images/property-types/retail-shops.jpg",
+    "heroImage": "https://images.pexels.com/photos/5669669/pexels-photo-5669669.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "relatedProjectIds": ["proj-001", "proj-003"],
     "relatedDeveloperIds": ["dev-001", "dev-002"],
     "relatedLocationIds": ["city-001", "city-002"]
@@ -64,9 +64,49 @@
     "slug": "independent-floors",
     "name": "Independent Floors",
     "description": "Spacious and private independent floors for families.",
-    "heroImage": "/images/property-types/independent-floors.jpg",
+    "heroImage": "/images/hero-real-estate.jpg",
     "relatedProjectIds": ["proj-002", "proj-005"],
     "relatedDeveloperIds": ["dev-001", "dev-002"],
     "relatedLocationIds": ["city-001", "city-004"]
+  },
+  {
+    "id": "pt-008",
+    "slug": "residential",
+    "name": "Residential",
+    "description": "Premium residential developments for comfortable living and smart investment.",
+    "heroImage": "https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "relatedProjectIds": [],
+    "relatedDeveloperIds": [],
+    "relatedLocationIds": []
+  },
+  {
+    "id": "pt-009",
+    "slug": "residential-commercial",
+    "name": "Residential + Commercial",
+    "description": "Mixed-use properties combining residential comfort with business-ready commercial spaces.",
+    "heroImage": "https://images.pexels.com/photos/4393915/pexels-photo-4393915.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "relatedProjectIds": [],
+    "relatedDeveloperIds": [],
+    "relatedLocationIds": []
+  },
+  {
+    "id": "pt-010",
+    "slug": "residential-studio",
+    "name": "Residential Studio",
+    "description": "Compact residential studio homes with efficient layouts for modern urban living.",
+    "heroImage": "https://images.pexels.com/photos/1461445/pexels-photo-1461445.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "relatedProjectIds": [],
+    "relatedDeveloperIds": [],
+    "relatedLocationIds": []
+  },
+  {
+    "id": "pt-011",
+    "slug": "mixed-residential",
+    "name": "Mixed Residential",
+    "description": "Flexible residential developments supporting a variety of living and investment needs.",
+    "heroImage": "https://images.pexels.com/photos/373508/pexels-photo-373508.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "relatedProjectIds": [],
+    "relatedDeveloperIds": [],
+    "relatedLocationIds": []
   }
 ]

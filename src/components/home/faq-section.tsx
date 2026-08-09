@@ -47,7 +47,7 @@ export default function FAQSection() {
   const [openId, setOpenId] = useState<string | null>(faqs[0]?.id || null);
 
   return (
-    <section className="py-10 sm:py-14">
+    <section className="py-8 sm:py-10">
       <Container>
         <SectionHeading
           title="Frequently Asked Questions"

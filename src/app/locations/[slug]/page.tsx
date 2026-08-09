@@ -13,6 +13,7 @@ import { SearchForm } from "@/components/home/search-form";
 import StatsCounter from "@/components/home/stats-counter";
 import ProjectShowcaseSection from "@/components/shared/project-showcase-section";
 import LocationSectionShell from "@/components/shared/location-section-shell";
+import { matchesProjectLocationSlug } from "@/lib/locationNormalization";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -43,9 +44,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
   }
 
   const allProjects = loadCSVProjects();
-  const locationProjects = (allProjects as Project[]).filter((project) =>
-    project.cityName.toLowerCase() === location.name.toLowerCase() ||
-    project.locality.toLowerCase().includes(location.name.toLowerCase())
+  const locationProjects = (allProjects as Project[]).filter(
+    (project) => matchesProjectLocationSlug(project, slug)
   );
 
   const featuredProjects = locationProjects.filter((project) => project.isFeatured);
@@ -57,7 +57,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
   const { developers: allDevelopers } = normalizeDataset(allProjects);
   const locationDevelopers = (allDevelopers as any[]).filter((developer) => {
     // include developer if any of their projects are in this city
-    return allProjects.some((p) => p.builderName === developer.name && p.cityName === location.name);
+    return allProjects.some(
+      (p) => p.builderName === developer.name && matchesProjectLocationSlug(p, slug)
+    );
   });
 
   const propertyTypes = Array.from(

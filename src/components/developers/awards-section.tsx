@@ -14,7 +14,7 @@ export default function AwardsSection({ awards }: AwardsSectionProps) {
   }
 
   return (
-    <section id="awards" className="py-16 sm:py-20">
+    <section id="awards" className="py-12 sm:py-16">
       <Container>
         <SectionHeading
           title="Awards & Recognitions"

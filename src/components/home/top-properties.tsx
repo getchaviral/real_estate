@@ -20,7 +20,7 @@ export default function TopProperties() {
   }, []);
 
   return (
-    <section className="bg-muted/40 py-16 sm:py-20">
+    <section className="bg-muted/40 py-8 sm:py-10">
       <ProjectCarousel
         title="Newly Launched Projects"
         subtitle="Early-access addresses from the latest launches with strong upside potential"

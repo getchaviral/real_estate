@@ -1,6 +1,7 @@
-import { Building2, CalendarDays, Globe2, Mail, MapPin, Phone, Star } from "lucide-react";
+import { Building2, ExternalLink, Globe2, MapPin, Star } from "lucide-react";
 import Container from "@/components/shared/container";
 import SectionHeading from "@/components/shared/section-heading";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Developer } from "@/types/developer";
 
@@ -17,7 +18,7 @@ export default function DeveloperAboutSection({ developer }: DeveloperAboutSecti
   ];
 
   return (
-    <section id="about-developer" className="py-16 sm:py-20">
+    <section id="about-developer" className="py-12 sm:py-16">
       <Container>
         <SectionHeading
           title={`About ${developer.name}`}
@@ -63,22 +64,26 @@ export default function DeveloperAboutSection({ developer }: DeveloperAboutSecti
 
               <div className="space-y-3 text-sm text-muted-foreground">
                 <div className="flex items-start gap-2">
-                  <Phone className="mt-0.5 h-4 w-4 shrink-0" />
-                  <span>{developer.contact.phone}</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <Mail className="mt-0.5 h-4 w-4 shrink-0" />
-                  <span>{developer.contact.email}</span>
-                </div>
-                <div className="flex items-start gap-2">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-                  <span>{developer.contact.address}</span>
+                  <span>{developer.contact.address || "Location unavailable"}</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <Globe2 className="mt-0.5 h-4 w-4 shrink-0" />
-                  <span>{developer.contact.website}</span>
+                  <span>{developer.contact.website || "Website unavailable"}</span>
                 </div>
               </div>
+
+              {developer.contact.website ? (
+                <a
+                  href={developer.contact.website}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={buttonVariants({ className: "w-full gap-2" })}
+                >
+                  Website
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+              ) : null}
 
               <div className="rounded-lg border border-border/70 bg-muted/40 p-4">
                 <div className="flex items-center gap-2 text-sm font-semibold text-foreground">

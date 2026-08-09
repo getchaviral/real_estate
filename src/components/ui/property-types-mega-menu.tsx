@@ -12,21 +12,32 @@ import {
 import { cn } from "@/lib/utils";
 
 const propertyTypes = [
-  { name: "Apartment", slug: "apartment" },
-  { name: "Villa", slug: "villa" },
-  { name: "Plot", slug: "plot" },
+  { name: "Residential", slug: "residential" },
   { name: "Commercial", slug: "commercial" },
-  { name: "Office Space", slug: "office-space" },
-  { name: "Retail Shop", slug: "retail-shop" },
-  { name: "Independent Floor", slug: "independent-floor" },
+  { name: "Residential + Commercial", slug: "residential-commercial" },
+  { name: "Residential Studio", slug: "residential-studio" },
+  { name: "Mixed Residential", slug: "mixed-residential" },
 ];
 
-export function PropertyTypesMegaMenu() {
+type PropertyTypesMegaMenuProps = {
+  isActive?: boolean;
+};
+
+export function PropertyTypesMegaMenu({
+  isActive = false,
+}: PropertyTypesMegaMenuProps) {
   return (
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Property Types</NavigationMenuTrigger>
+          <NavigationMenuTrigger
+            className={cn(
+              isActive &&
+                "bg-muted text-foreground font-semibold hover:text-foreground"
+            )}
+          >
+            Property Types
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="grid w-[400px] gap-3 p-4 md:grid-cols-2">
               {propertyTypes.map((property, index) => (

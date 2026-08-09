@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { MapPin, Building2, ArrowRight } from "lucide-react";
+import { MapPin, ArrowRight } from "lucide-react";
 import Container from "@/components/shared/container";
 import SectionHeading from "@/components/shared/section-heading";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatPriceRange, getStatusColor } from "@/lib/utils";
 import { PROJECT_STATUS_LABELS } from "@/lib/constants";
+import { getFallbackImage } from "@/lib/fallback-images";
 import type { Project } from "@/types/project";
 
 interface ProjectShowcaseSectionProps {
@@ -20,6 +23,25 @@ interface ProjectShowcaseSectionProps {
   showButton?: boolean;
   buttonLabel?: string;
   buttonVariant?: "default" | "outline" | "ghost" | "secondary" | "destructive" | "link";
+}
+
+function ProjectImage({ project }: { project: Project }) {
+  const [imgError, setImgError] = useState(false);
+  const fallbackImage = getFallbackImage(project.slug);
+  const imageSrc = imgError
+    ? fallbackImage
+    : project.images?.hero || project.images?.gallery?.[0] || fallbackImage;
+
+  return (
+    <Image
+      src={imageSrc}
+      alt={project.name}
+      fill
+      sizes="(max-width: 768px) 90vw, (max-width: 1280px) 22rem, 24rem"
+      className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+      onError={() => setImgError(true)}
+    />
+  );
 }
 
 export default function ProjectShowcaseSection({
@@ -35,11 +57,11 @@ export default function ProjectShowcaseSection({
   const visibleProjects = projects.slice(0, limit);
 
   return (
-    <section className={`py-16 sm:py-20 ${className}`.trim()}>
+    <section className={`py-10 sm:py-14 ${className}`.trim()}>
       <Container>
         <SectionHeading title={title} subtitle={subtitle} />
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {visibleProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -49,10 +71,8 @@ export default function ProjectShowcaseSection({
               transition={{ delay: index * 0.08, duration: 0.5 }}
             >
               <Card className="group h-full overflow-hidden">
-                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 sm:h-56">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Building2 className="h-12 w-12 text-primary/30" />
-                  </div>
+                <div className="relative h-48 overflow-hidden rounded-t-xl bg-slate-950 sm:h-56">
+                  <ProjectImage project={project} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
 
                   <div className="absolute left-3 top-3 flex flex-wrap gap-2">

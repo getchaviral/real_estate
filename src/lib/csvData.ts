@@ -56,7 +56,7 @@ function headersToKey(header: string) {
     .join('');
 }
 
-function slugify(text?: string) {
+export function slugify(text?: string) {
   return (
     (text || '')
       .toString()
@@ -66,6 +66,22 @@ function slugify(text?: string) {
       .replace(/\s+/g, '-')
       .replace(/-+/g, '-')
   );
+}
+
+export function getCityNameFromLocation(locationText?: string) {
+  const raw = (locationText || '').toString().trim();
+  const normalized = raw.toLowerCase();
+  const locationParts = raw.split(',').map((part: string) => part.trim()).filter(Boolean);
+
+  if (/\b(greater\s+noida|noida\s+extension)\b/i.test(normalized)) {
+    return 'Greater Noida';
+  }
+
+  if (/\bnoida\b/i.test(normalized)) {
+    return 'Noida';
+  }
+
+  return locationParts.length > 0 ? locationParts[locationParts.length - 1] : '';
 }
 
 function getAliasedField(row: Record<string, string>, aliases: string[]) {
@@ -105,12 +121,6 @@ interface DeveloperAccumulator {
     website: string;
     address: string;
   };
-  socialLinks: {
-    facebook: string;
-    instagram: string;
-    linkedin: string;
-    youtube: string;
-  };
   awards: unknown[];
   meta: { title: string; description: string; keywords: string };
   createdAt: string;
@@ -122,6 +132,45 @@ interface CitySummary {
   name: string;
   slug: string;
   count: number;
+}
+
+const DEVELOPER_WEBSITES: Record<string, string> = {
+  'aba-corp': 'https://www.abacorp.in',
+  'ace-group': 'https://www.acegroupindia.com',
+  ads: 'https://www.adsprojects.in',
+  'ads-group': 'https://www.adsprojects.in',
+  ats: 'https://www.atsgreens.com',
+  'bhutani-group': 'https://www.bhutanigroup.com',
+  'crc-group': 'https://crcgroup.in',
+  'eon-group': 'https://eonprojects.com',
+  'experion-group': 'https://www.experion.co',
+  'gaursons-group': 'https://www.gaursonsindia.com',
+  'godrej-group': 'https://www.godrejproperties.com',
+  'group-108': 'https://www.group108.in',
+  'gulsan-group': 'https://gulshangroup.com',
+  'gulshan-group': 'https://gulshangroup.com',
+  'gygy-group': 'https://www.gygy.in',
+  'nirala-india': 'https://www.niralaindia.com',
+  'nirala-world': 'https://www.niralaworld.com',
+  'prestige-group': 'https://www.prestigeconstructions.com',
+  'purvanchal-group': 'https://www.purvanchalprojects.com',
+  unibera: 'https://www.unibera.com',
+};
+
+function getDeveloperWebsite(developerSlug: string) {
+  return DEVELOPER_WEBSITES[developerSlug] || '';
+}
+
+function getDeveloperLogo(developerSlug: string) {
+  const website = getDeveloperWebsite(developerSlug);
+  if (!website) return '/images/developer-logo-fallback.svg';
+
+  const domain = website.replace(/^https?:\/\//, '').replace(/^www\./, '').split('/')[0];
+  return `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+}
+
+function getDeveloperCoverImage(project: Project | undefined, developerSlug: string) {
+  return project?.images?.hero || getFallbackImage(`${developerSlug}-developer-cover`);
 }
 
 function inferAuthorityFromText(text: string) {
@@ -231,7 +280,7 @@ export function readCSVProjectsFromString(raw: string) {
 
     const propertyTypes = projectTypeRaw ? parseDelimitedList(projectTypeRaw) : [];
     const locationParts = locationSectorArea.split(',').map((part: string) => part.trim()).filter(Boolean);
-    const cityName = locationParts.length > 0 ? locationParts[locationParts.length - 1] : '';
+    const cityName = getCityNameFromLocation(locationSectorArea);
     const locality = locationParts.length > 1 ? locationParts.slice(0, locationParts.length - 1).join(', ') : locationParts[0] || '';
     const slug = slugify(projectName) || `project-${idx}`;
     const developerSlug = slugify(developer || 'unknown-developer');
@@ -333,6 +382,7 @@ export function normalizeDataset(projects: Project[]) {
     const developerSlug = slugify(developerName);
     const citySlug = slugify(p.cityName || 'unknown-city');
     const localitySlug = slugify(p.locality || p.cityName || 'unknown-locality');
+    const website = getDeveloperWebsite(developerSlug);
 
     developersMap[developerSlug] = developersMap[developerSlug] || {
       id: developerSlug,
@@ -340,8 +390,8 @@ export function normalizeDataset(projects: Project[]) {
       name: developerName,
       tagline: `${developerName} Projects`,
       description: `Explore premium projects from ${developerName}.`,
-      logo: '/images/placeholder-logo.png',
-      coverImage: '/images/placeholder-cover.jpg',
+      logo: getDeveloperLogo(developerSlug),
+      coverImage: getDeveloperCoverImage(p, developerSlug),
       foundedYear: 2000,
       totalProjects: 0,
       completedProjects: 0,
@@ -356,14 +406,8 @@ export function normalizeDataset(projects: Project[]) {
       contact: {
         phone: '',
         email: '',
-        website: '',
+        website,
         address: '',
-      },
-      socialLinks: {
-        facebook: '',
-        instagram: '',
-        linkedin: '',
-        youtube: '',
       },
       awards: [],
       meta: { title: developerName, description: '', keywords: '' },
@@ -400,12 +444,23 @@ export function normalizeDataset(projects: Project[]) {
     }
   });
 
-  const developers = Object.values(developersMap).map((developer) => ({
-    ...developer,
-    cityIds: Array.from(developer.cityIds || []),
-    localityIds: Array.from(developer.localityIds || []),
-    propertyTypeIds: Array.from(developer.propertyTypeIds || []),
-  }));
+  const developers = Object.values(developersMap).map((developer) => {
+    const cityIds = Array.from(developer.cityIds || []);
+    const cityNames = cityIds
+      .map((cityId) => citiesMap[cityId]?.name || cityId)
+      .filter(Boolean);
+
+    return {
+      ...developer,
+      cityIds,
+      localityIds: Array.from(developer.localityIds || []),
+      propertyTypeIds: Array.from(developer.propertyTypeIds || []),
+      contact: {
+        ...developer.contact,
+        address: cityNames.join(', '),
+      },
+    };
+  });
   const cities = Object.values(citiesMap);
   const propertyTypes = Array.from(propertyTypesMap.entries()).map(([slug, name]) => ({ id: slug, name, slug }));
 

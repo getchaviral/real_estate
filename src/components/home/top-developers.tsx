@@ -65,7 +65,7 @@ export default function TopDevelopers() {
   }, []);
 
   return (
-    <section className="bg-muted/50 py-10 sm:py-14">
+    <section className="bg-muted/50 py-8 sm:py-10">
       <Container>
         <SectionHeading title="Top Builders" subtitle="Builders ranked by active projects." />
 

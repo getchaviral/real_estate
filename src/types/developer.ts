@@ -14,15 +14,11 @@ export interface DeveloperSummary {
   tagline: string;
 }
 
-export interface DeveloperSocialLinks {
-  facebook: string;
-  instagram: string;
-  linkedin: string;
-  youtube: string;
-}
-
 export interface DeveloperAward {
   year: number;
+  title: string;
+  organization: string;
+}
   title: string;
   organization: string;
 }
@@ -47,7 +43,6 @@ export interface Developer {
   ratings: number;
   totalReviews: number;
   contact: DeveloperContact;
-  socialLinks: DeveloperSocialLinks;
   awards: DeveloperAward[];
   meta: Meta;
   createdAt: string;

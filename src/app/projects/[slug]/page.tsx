@@ -229,7 +229,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
         </Container>
       </section>
 
-      <Container className="space-y-10 py-10 sm:py-14">
+      <Container className="space-y-8 py-8 sm:py-12">
         <section>
           <h2 className="text-2xl font-semibold tracking-tight text-slate-950">Key Project Information</h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

@@ -128,7 +128,7 @@ export default function HeroSection() {
 
 
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45, duration: 0.5 }} className="ml-0 mr-auto mt-2 w-full max-w-[min(100%,58rem)] rounded-[clamp(1.25rem,2.2vw,1.875rem)] border border-white/20 bg-card/95 p-2 shadow-[0_25px_70px_-28px_rgba(2,6,23,0.5)] backdrop-blur sm:mt-3 sm:p-3 lg:p-4" ref={searchRef}>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45, duration: 0.5 }} className="mx-auto mt-2 w-full max-w-[min(100%,58rem)] rounded-[clamp(1.25rem,2.2vw,1.875rem)] border border-white/20 bg-card/95 p-2 shadow-[0_25px_70px_-28px_rgba(2,6,23,0.5)] backdrop-blur sm:mt-3 sm:p-3 lg:p-4" ref={searchRef}>
             <form onSubmit={handleSubmit} className="grid gap-3 md:grid-cols-2 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.7fr)_minmax(0,0.7fr)_minmax(0,0.4fr)]">
               <div className="relative">
                 <MapPin className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-500" />

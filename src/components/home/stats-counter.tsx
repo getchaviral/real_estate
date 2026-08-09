@@ -49,26 +49,30 @@ const stats = [
 
 export default function StatsCounter() {
   return (
-    <section className="relative z-10 -mt-2 pb-6 sm:pb-10">
+    <section className="border-y border-border">
       <Container>
-        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="grid gap-4 rounded-[32px] border border-border/70 bg-card/95 p-4 shadow-[0_20px_60px_-32px_rgba(15,23,42,0.24)] sm:grid-cols-2 xl:grid-cols-4 xl:p-6">
-          {stats.map((stat) => {
+        <div className="grid grid-cols-2 gap-px border-x border-border bg-border md:grid-cols-4">
+          {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <div key={stat.label} className="rounded-[22px] border border-border/80 bg-muted/70 px-5 py-4 text-center transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:bg-card hover:shadow-sm">
-                <div className="mx-auto mb-2 flex h-11 w-11 items-center justify-center rounded-full bg-orange-50 text-orange-500">
-                  <Icon className="h-5 w-5" />
-                </div>
-                <div className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-background p-6 text-center"
+              >
+                <Icon className="mx-auto h-8 w-8 text-primary" />
+                <div className="mt-3 text-3xl font-bold tracking-tighter text-foreground sm:text-4xl">
                   <Counter end={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="mt-1 text-sm font-medium text-muted-foreground">{stat.label}</div>
-              </div>
+                <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
+              </motion.div>
             );
           })}
-        </motion.div>
+        </div>
       </Container>
     </section>
   );
 }
-
