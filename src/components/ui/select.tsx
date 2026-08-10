@@ -160,10 +160,10 @@ function SelectTrigger({
       className={cn(
         "flex h-10 w-full items-center justify-between gap-2",
         "rounded-md border border-input",
-        "bg-background px-3 py-2",
+        "bg-input px-3 py-2",
         "text-sm text-foreground",
         "shadow-sm transition-colors",
-        "hover:bg-muted/40",
+        "hover:bg-muted/20 dark:hover:bg-muted/30",
         "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1",
         "disabled:cursor-not-allowed disabled:opacity-50",
         className
@@ -298,12 +298,11 @@ function SelectContent({
       className={cn(
         "isolate",
         "max-h-60 overflow-y-auto",
-        "rounded-md border",
-        "border-gray-200 dark:border-gray-700",
-        "bg-white dark:bg-gray-900",
-        "text-gray-900 dark:text-gray-100",
+        "rounded-xl border",
+        "border-border",
+        "bg-popover text-popover-foreground",
         "p-1",
-        "shadow-xl shadow-black/15 dark:shadow-black/50",
+        "shadow-card",
         "animate-in fade-in-0 zoom-in-95 duration-100"
       )}
     >
@@ -352,14 +351,13 @@ function SelectItem({
         "flex w-full items-center gap-2",
         "rounded-sm px-2 py-2",
         "text-left text-sm",
-        "text-gray-900 dark:text-gray-100",
+        "text-foreground",
         "cursor-pointer",
         "transition-colors",
-        "hover:bg-gray-100 dark:hover:bg-gray-800",
-        "focus:bg-gray-100 dark:focus:bg-gray-800",
+        "hover:bg-muted/80 focus:bg-muted/80",
         "focus:outline-none",
         isSelected &&
-        "bg-gray-100 font-medium dark:bg-gray-800"
+        "bg-primary/10 font-medium text-primary dark:bg-primary/15"
       )}
     >
       <Check

@@ -78,24 +78,24 @@
   }
 
   .dark {
-    --background: 224 71.4% 4.1%;
-    --foreground: 210 20% 98%;
-    --card: 222 47% 11%;
-    --card-foreground: 210 20% 98%;
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 20% 98%;
+    --background: 220 12% 14%;
+    --foreground: 210 20% 96%;
+    --card: 220 15% 18%;
+    --card-foreground: 210 20% 96%;
+    --popover: 220 14% 20%;
+    --popover-foreground: 210 20% 96%;
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 215 27.9% 16.9%;
-    --secondary-foreground: 210 20% 98%;
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%;
+    --secondary: 215 18% 24%;
+    --secondary-foreground: 210 20% 96%;
+    --muted: 215 17% 26%;
+    --muted-foreground: 217.9 10.6% 72%;
     --accent: 30 90% 55%;
     --accent-foreground: 210 20% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 20% 98%;
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
+    --border: 215 18% 34%;
+    --input: 215 17% 22%;
     --ring: 217 91% 60%;
 
     /* Success / Warning / Error badges - dark */
@@ -340,6 +340,23 @@
   .dark .hover\:bg-white\/80:hover,
   .dark .focus\:bg-slate-100:focus {
     background-color: hsl(var(--muted)) !important;
+  }
+
+  .dark .bg-slate-950,
+  .dark .bg-slate-900 {
+    background-color: hsl(220 12% 15%) !important;
+  }
+
+  .dark .section-surface {
+    border-color: rgba(148, 163, 184, 0.18);
+    background: rgba(15, 23, 42, 0.72);
+    box-shadow: 0 20px 60px -32px rgba(0, 0, 0, 0.45);
+  }
+
+  .dark .section-surface-muted {
+    border-color: rgba(148, 163, 184, 0.14);
+    background: rgba(15, 23, 42, 0.60);
+    box-shadow: 0 18px 50px -30px rgba(0, 0, 0, 0.35);
   }
 
   .dark .hover\:text-slate-950:hover,
