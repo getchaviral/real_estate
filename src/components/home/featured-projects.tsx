@@ -306,7 +306,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
         <div className="relative h-48 w-full overflow-hidden"> 
           <img
             src={heroImage}
-            alt={project.name}
+            alt={`${project.name} residential project in ${project.locality || project.cityName}`}
             className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
           />
         </div>

@@ -7,6 +7,7 @@ import { Footer } from "@/components/ui/footer";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { SITE_URL } from "@/lib/seo";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -17,6 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "YouWe Homes - Find Your Dream Home",
     template: "%s | YouWe Homes",
@@ -42,7 +44,14 @@ export const metadata: Metadata = {
       "Discover premium residential and commercial properties across India's top cities.",
     type: "website",
     locale: "en_IN",
+    siteName: "YouWe Homes",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "YouWe Homes - Find Your Dream Home",
+    description: "Discover premium residential and commercial properties across India's top cities.",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

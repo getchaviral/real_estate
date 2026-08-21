@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import {
   ArrowRight,
   Building2,
@@ -29,6 +30,7 @@ import { formatPriceRange, getStatusColor } from "@/lib/utils";
 import { PROJECT_STATUS_LABELS } from "@/lib/constants";
 import { getFallbackImage } from "@/lib/fallback-images";
 import type { Project } from "@/types/project";
+import { absoluteUrl, projectMetadata, projectPrice } from "@/lib/seo";
 
 interface ProjectDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -120,6 +122,13 @@ export async function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
 
+export async function generateMetadata({ params }: ProjectDetailPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = await getProject(slug);
+
+  return project ? projectMetadata(project) : {};
+}
+
 export default async function ProjectDetailPage({ params }: ProjectDetailPageProps) {
   const { slug } = await params;
   const project = await getProject(slug);
@@ -143,9 +152,36 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
         (item.cityName === project.cityName || item.developerName === project.developerName)
     )
     .slice(0, 4);
+  const projectLocation = cleanValue(project.location || project.locationSectorArea || project.cityName);
+  const projectImage = getPrimaryImage(project);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    name: project.name,
+    url: absoluteUrl(`/projects/${project.slug}`),
+    image: absoluteUrl(projectImage),
+    description: project.description || undefined,
+    address: projectLocation !== NOT_AVAILABLE ? {
+      "@type": "PostalAddress",
+      streetAddress: project.address || projectLocation,
+      addressLocality: project.cityName || undefined,
+      addressCountry: "IN",
+    } : undefined,
+    provider: project.developerName || project.builderName ? {
+      "@type": "Organization",
+      name: project.developerName || project.builderName,
+    } : undefined,
+    offers: projectPrice(project) ? {
+      "@type": "Offer",
+      price: project.priceRange.min ?? project.priceRange.max,
+      priceCurrency: project.priceRange.currency || "INR",
+      url: absoluteUrl(`/projects/${project.slug}`),
+    } : undefined,
+  };
 
   return (
     <main className="bg-slate-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <Container className="py-6 sm:py-8">
         <nav className="flex flex-wrap items-center gap-2 text-sm text-slate-500">
           <Link href="/" className="transition hover:text-slate-950">
@@ -165,8 +201,8 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
           <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
             <div className="relative min-h-[320px] overflow-hidden rounded-xl bg-slate-950 shadow-[0_30px_80px_-45px_rgba(15,23,42,0.65)] sm:min-h-[430px]">
               <Image
-                src={getPrimaryImage(project)}
-                alt={project.name}
+                src={projectImage}
+                alt={`${project.name}${projectLocation !== NOT_AVAILABLE ? ` residential project in ${projectLocation}` : " project"}`}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 58vw"

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { loadCSVProjects } from '@/services/csv-project-service';
 import { normalizeDataset } from '@/lib/csvData';
 import locationsJson from "@/data/locations.json";
@@ -24,6 +25,7 @@ import FAQSection from "@/components/home/faq-section";
 import ContactCTA from "@/components/home/contact-cta";
 import BlogPreview from "@/components/home/blog-preview";
 import MotionWrapper from "@/components/shared/motion-wrapper";
+import { cityMetadata } from "@/lib/seo";
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -95,6 +97,15 @@ export async function generateStaticParams() {
     seen.add(slug);
     return true;
   });
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const projects = loadCSVProjects();
+  const { cities } = normalizeDataset(projects);
+  const city = (cities as { name: string; slug: string; count: number }[]).find((item) => item.slug === slug);
+
+  return city ? cityMetadata(city.name, city.slug, city.count) : {};
 }
 
 // ---------------------------------------------------------------------------

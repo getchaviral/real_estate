@@ -35,7 +35,7 @@ function ProjectImage({ project }: { project: Project }) {
   return (
     <Image
       src={imageSrc}
-      alt={project.name}
+      alt={`${project.name} residential project in ${project.locality || project.cityName}`}
       fill
       sizes="(max-width: 768px) 90vw, (max-width: 1280px) 22rem, 24rem"
       className="h-full w-full object-cover transition duration-700 group-hover:scale-110"

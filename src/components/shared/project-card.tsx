@@ -2,6 +2,7 @@
 
 import { useMemo, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight, Building2, Heart, Home, MapPin, Maximize2, Share2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -125,7 +126,7 @@ function ProjectCard({ project }: ProjectCardProps) {
       <div className="relative aspect-[16/9] overflow-hidden rounded-t-xl bg-slate-950">
         <Image
           src={imageSrc}
-          alt={project.name}
+          alt={`${project.name} residential project in ${project.locality || project.cityName}`}
           fill
           sizes="(max-width: 768px) 90vw, (max-width: 1280px) 22rem, 24rem"
           className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
@@ -249,7 +250,7 @@ function ProjectCard({ project }: ProjectCardProps) {
         </Button>
       </div>
 
-      <button type="button" onClick={goToProject} className="absolute inset-0 z-10" aria-label={`Open ${project.name}`} />
+      <Link href={`/projects/${project.slug}`} className="absolute inset-0 z-10" aria-label={`Open ${project.name}`} />
     </article>
   );
 }

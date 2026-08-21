@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import HeroSection from "@/components/home/hero-section";
 import StatsCounter from "@/components/home/stats-counter";
 import ExploreProjects from "@/components/home/explore-projects";
@@ -16,6 +17,19 @@ import HomeLoanCTA from "@/components/home/home-loan-cta";
 import MarketInsights from "@/components/home/market-insights";
 import Newsletter from "@/components/home/newsletter";
 import ContactCTA from "@/components/home/contact-cta";
+
+export const metadata: Metadata = {
+  title: "Find Your Dream Home in India's Top Cities",
+  description: "Explore real residential and commercial projects, prices, locations, developers, and property types with YouWe Homes.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Find Your Dream Home in India's Top Cities | YouWe Homes",
+    description: "Explore residential and commercial projects across India's top cities with YouWe Homes.",
+    url: "/",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image" },
+};
 
 const homeSections = [
   HeroSection,

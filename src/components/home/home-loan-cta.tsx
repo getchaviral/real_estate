@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, BadgePercent, Banknote, Calculator, Phone, ShieldCheck } from "lucide-react";
@@ -7,8 +8,11 @@ import Container from "@/components/shared/container";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import image0 from "@/lib/image0.png";
+import EnquiryModal from "@/components/home/enquiry-modal";
 
 export default function HomeLoanCTA() {
+  const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
+
   return (
     <section className="py-8 sm:py-10">
       <Container>
@@ -46,10 +50,16 @@ export default function HomeLoanCTA() {
                   </Button>
                 </div>
 
-                <Button variant="outline" className="mt-4 w-auto rounded-xl gap-2 px-4 py-2 text-sm">
+                <div className="mt-4 flex flex-wrap gap-3">
+                <Button variant="outline" className="w-auto rounded-xl gap-2 px-4 py-2 text-sm" onClick={() => setIsEnquiryOpen(true)}>
                   <Phone className="h-4 w-4" />
                   Request a callback
                 </Button>
+                <Button className="w-auto rounded-xl gap-2 px-4 py-2 text-sm" onClick={() => setIsEnquiryOpen(true)}>
+                  Enquire Now
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+                </div>
               </div>
 
               <div className="order-2 md:order-1">
@@ -69,6 +79,7 @@ export default function HomeLoanCTA() {
           </Card>
         </motion.div>
       </Container>
+      <EnquiryModal key={isEnquiryOpen ? "open" : "closed"} open={isEnquiryOpen} onClose={() => setIsEnquiryOpen(false)} />
     </section>
   );
 }
