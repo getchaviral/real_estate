@@ -353,7 +353,7 @@ export function readCSVProjectsFromString(raw: string) {
       ],
       images: {
         hero: (function () {
-          const badDomains = ['housing.com', '99acres.com', 'magicbricks.com', 'squareyards', 'nobroker', 'makaan.com', 'proptiger.com', 'propertywala.com', 'justdial.com', 'olx.in'];
+          const badDomains = ['housing.com', '99acres.com', 'magicbricks.com', 'squareyards', 'nobroker', 'makaan.com', 'proptiger.com', 'propertywala.com', 'justdial.com', 'olx.in', 'lookaside.fbsbx.com', 'fbcdn.net'];
           const isBad = !imageUrl || badDomains.some(d => imageUrl.toLowerCase().includes(d));
           return isBad ? getFallbackImage(slug) : imageUrl;
         })(),

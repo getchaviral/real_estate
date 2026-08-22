@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useCallback, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
@@ -55,8 +56,18 @@ export function Navbar() {
       <Container>
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="font-bold text-xl">
-            {SITE_CONFIG.name}
+          <Link href="/" className="flex items-center gap-2">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border/60 bg-white p-1 shadow-sm">
+              <Image
+                src="/images/YouWehomeslogo.cdr.png"
+                alt={SITE_CONFIG.name}
+                width={48}
+                height={48}
+                priority
+                className="h-full w-full object-contain"
+              />
+            </span>
+            <span className="font-bold text-xl">{SITE_CONFIG.name}</span>
           </Link>
 
           {/* Desktop Navigation */}

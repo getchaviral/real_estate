@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Navbar } from "@/components/ui/navbar";
 import { Footer } from "@/components/ui/footer";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import FloatingAgentCard from "@/components/shared/floating-agent-card";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { SITE_URL } from "@/lib/seo";
@@ -91,6 +92,7 @@ export default function RootLayout({
           <main className="flex-1 pt-16">{children}</main>
           <Footer />
           <ThemeToggle />
+          <FloatingAgentCard />
         </ThemeProvider>
       </body>
     </html>

@@ -190,56 +190,51 @@ function ProjectCard({ project }: ProjectCardProps) {
         ) : null}
       </div>
 
-      <div className="flex flex-1 flex-col p-4">
+      <div className="flex flex-1 flex-col gap-3 p-4">
         <div>
-          <h3 className="line-clamp-2 min-h-[2.75rem] text-[1.05rem] font-semibold leading-[1.35] text-slate-950 transition-colors group-hover:text-primary">
+          <h3 className="line-clamp-1 text-base font-semibold leading-snug text-slate-950 transition-colors group-hover:text-primary">
             {project.name}
           </h3>
 
-          <div className="mt-2 space-y-1.5 text-sm text-slate-600">
-            <div className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 shrink-0 text-primary" />
-              <span className="line-clamp-1">{project.locality}, {project.cityName}</span>
-            </div>
+          <div className="mt-1.5 flex items-center gap-1.5 text-sm text-slate-500">
+            <MapPin className="h-3.5 w-3.5 shrink-0 text-primary" />
+            <span className="line-clamp-1">{project.locality}, {project.cityName}</span>
           </div>
         </div>
 
-        <div className="mt-3 rounded-xl border border-slate-100 bg-slate-50/80 p-3">
-          <p className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">Starting Price</p>
-          <p className="mt-1 text-lg font-bold leading-6 text-slate-950">
+        <div className="border-t border-slate-100 pt-3">
+          <p className="text-[11px] font-medium uppercase tracking-wide text-slate-400">Starting Price</p>
+          <p className="mt-0.5 text-xl font-bold leading-6 text-slate-950">
             {formatPriceRange(project.priceRange.min, project.priceRange.max)}
           </p>
-
-          <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
-            <div className="min-w-0">
-              <div className="flex items-center gap-1.5 text-xs font-medium text-slate-500">
-                <Home className="h-3.5 w-3.5" />
-                Config
-              </div>
-              <p className="mt-1 truncate font-semibold text-slate-900">{primaryConfiguration}</p>
-            </div>
-            <div className="min-w-0">
-              <div className="flex items-center gap-1.5 text-xs font-medium text-slate-500">
-                <Maximize2 className="h-3.5 w-3.5" />
-                Area
-              </div>
-              <p className="mt-1 truncate font-semibold text-slate-900">{primaryArea}</p>
-            </div>
-          </div>
         </div>
 
-        <div className="mt-3 grid gap-1.5 text-xs font-medium text-slate-500">
-          <div className="flex min-w-0 items-center gap-2">
-            <Building2 className="h-3.5 w-3.5 shrink-0 text-primary" />
+        <div className="flex items-center gap-3 text-sm text-slate-600">
+          <span className="flex min-w-0 items-center gap-1.5">
+            <Home className="h-3.5 w-3.5 shrink-0 text-slate-400" />
+            <span className="truncate">{primaryConfiguration}</span>
+          </span>
+          <span className="h-1 w-1 shrink-0 rounded-full bg-slate-300" />
+          <span className="flex min-w-0 items-center gap-1.5">
+            <Maximize2 className="h-3.5 w-3.5 shrink-0 text-slate-400" />
+            <span className="truncate">{primaryArea}</span>
+          </span>
+        </div>
+
+        <div className="flex items-center justify-between gap-2 text-xs">
+          <span className="flex min-w-0 items-center gap-1.5 font-medium text-slate-600">
+            <Building2 className="h-3.5 w-3.5 shrink-0 text-slate-400" />
             <span className="truncate">{developerName}</span>
-          </div>
-          <p className="line-clamp-1">{primaryPropertyType}</p>
+          </span>
+          <span className="shrink-0 truncate rounded-full bg-slate-100 px-2.5 py-1 font-medium text-slate-500">
+            {primaryPropertyType}
+          </span>
         </div>
 
         <Button
           variant="default"
           size="sm"
-          className="relative z-20 mt-auto inline-flex h-10 items-center justify-center gap-2 rounded-full bg-slate-950 px-4 text-sm font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-0.5 hover:bg-slate-900 group-hover:shadow-[0_14px_35px_-20px_rgba(15,23,42,0.9)]"
+          className="relative z-20 mt-auto inline-flex h-10 w-full items-center justify-center gap-2 rounded-full bg-slate-950 px-4 text-sm font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-0.5 hover:bg-slate-900 group-hover:shadow-[0_14px_35px_-20px_rgba(15,23,42,0.9)]"
           onClick={(event) => {
             event.stopPropagation();
             goToProject();

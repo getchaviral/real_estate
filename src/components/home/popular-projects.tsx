@@ -110,14 +110,14 @@ export default function PopularProjects() {
   };
 
   return (
-    <section className="overflow-hidden bg-slate-50 dark:bg-slate-950 py-6 sm:py-8 lg:py-10">
+    <section className="overflow-hidden bg-slate-50 dark:bg-slate-950 py-8 sm:py-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-3xl">
-            <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+            <h2 className="text-3xl font-semibold tracking-[-0.02em] text-slate-950 dark:text-foreground sm:text-4xl lg:text-5xl">
               Fast Moving Projects
             </h2>
-            <p className="mt-2 max-w-2xl text-base leading-7 text-slate-600">
+            <p className="mt-3 max-w-2xl text-lg leading-8 text-slate-600 dark:text-muted-foreground sm:text-xl">
               Discover premium residential and commercial projects across India&apos;s top cities.
             </p>
           </div>

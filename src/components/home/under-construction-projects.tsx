@@ -24,7 +24,7 @@ export default function UnderConstructionProjects() {
   }, []);
 
   return (
-    <section className="bg-muted/40 py-10 sm:py-12">
+    <section className="bg-muted/40 py-8 sm:py-10">
       <ProjectCarousel
         title="Under Construction"
         subtitle="Explore active projects that are under construction from our current portfolio."

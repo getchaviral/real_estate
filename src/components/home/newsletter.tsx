@@ -20,7 +20,7 @@ export default function Newsletter() {
                 <p className="mt-3 max-w-xl text-lg leading-8 text-muted-foreground">Receive handpicked opportunities, market updates, and neighborhood insights tailored to your buying goals.</p>
               </div>
 
-              <div className="rounded-3xl border border-border/80 bg-background/80 p-4 shadow-sm">
+              <div className="self-center rounded-3xl border border-border/80 bg-background/80 p-4 shadow-sm">
                 <div className="flex items-center gap-2 text-sm font-medium text-foreground">
                   <BellRing className="h-4 w-4 text-primary" />
                   Join 12k+ buyers and investors

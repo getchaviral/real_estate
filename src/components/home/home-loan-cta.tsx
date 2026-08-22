@@ -14,7 +14,7 @@ export default function HomeLoanCTA() {
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
 
   return (
-    <section className="py-8 sm:py-10">
+    <section id="finance-support" className="py-8 sm:py-10">
       <Container>
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.45 }}>
           <Card className="overflow-hidden border-primary/20 bg-gradient-to-br from-primary/10 via-background to-background">

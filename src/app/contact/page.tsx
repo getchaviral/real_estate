@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Clock3, Mail, MapPin, Phone, ArrowRight, Building2 } from "lucide-react";
+import { Clock3, Mail, MapPin, Phone, ArrowRight, Building2, FileText, Download } from "lucide-react";
 import Container from "@/components/shared/container";
 import SectionHeading from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
@@ -26,6 +26,52 @@ const contactFaqs = [
 export default function ContactPage() {
   return (
     <>
+      <section className="py-16 sm:py-20">
+        <Container>
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <SectionHeading
+              title="Meet Your Advisor"
+              subtitle="Review our advisor's professional profile before you get in touch."
+              align="left"
+            />
+            <a
+              href="/Ajay_Kumar_Vaishkiyar_Professional_Profile_Final.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-10 w-fit shrink-0 items-center justify-center gap-2 rounded-lg border border-border bg-background px-4 text-sm font-medium text-foreground transition hover:bg-muted"
+            >
+              <Download className="h-4 w-4" />
+              Download PDF
+            </a>
+          </div>
+
+          <Card className="mt-8 overflow-hidden border-border/70 bg-card/80">
+            <CardContent className="p-2 sm:p-3">
+              <object
+                data="/Ajay_Kumar_Vaishkiyar_Professional_Profile_Final.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&view=FitH"
+                type="application/pdf"
+                className="h-[70vh] w-full rounded-xl border border-border/70"
+                aria-label="Ajay Kumar Vaishkiyar professional profile PDF"
+              >
+                <div className="flex h-[70vh] w-full flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-border bg-muted/40 p-6 text-center text-muted-foreground">
+                  <FileText className="h-8 w-8 text-primary" />
+                  <p>Your browser can&apos;t preview PDFs inline.</p>
+                  <a
+                    href="/Ajay_Kumar_Vaishkiyar_Professional_Profile_Final.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+                  >
+                    Open the PDF instead
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </object>
+            </CardContent>
+          </Card>
+        </Container>
+      </section>
+
       <section className="bg-gradient-to-br from-primary/10 via-background to-background py-20 sm:py-28">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
