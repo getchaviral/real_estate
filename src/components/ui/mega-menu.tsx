@@ -88,15 +88,14 @@ export function MegaMenu({ isActive = false }: MegaMenuProps) {
                     return (
                       <li key={city.slug}>
                         <NavigationMenuLink
+                          render={<Link href={`/locations/${city.slug}`} />}
                           className={cn(
-                            "block p-2 rounded-md hover:bg-muted",
+                            "block w-full p-2 rounded-md hover:bg-muted",
                             isActive && "bg-muted font-semibold"
                           )}
                           onMouseEnter={() => setActiveCity(city)}
                         >
-                          <Link href={`/locations/${city.slug}`} className="block w-full">
-                            {city.name}
-                          </Link>
+                          {city.name}
                         </NavigationMenuLink>
                       </li>
                     );
@@ -110,13 +109,15 @@ export function MegaMenu({ isActive = false }: MegaMenuProps) {
                     const activeSlug = activeCity?.slug;
                     return (
                       <li key={section}>
-                        <NavigationMenuLink className="hover:text-foreground">
-                          <Link
-                            href={activeSlug ? `/locations/${activeSlug}#${section.toLowerCase().replace(/\s+/g, "-")}` : "/locations"}
-                            className="block w-full"
-                          >
-                            {section}
-                          </Link>
+                        <NavigationMenuLink
+                          render={
+                            <Link
+                              href={activeSlug ? `/locations/${activeSlug}#${section.toLowerCase().replace(/\s+/g, "-")}` : "/locations"}
+                            />
+                          }
+                          className="block w-full hover:text-foreground"
+                        >
+                          {section}
                         </NavigationMenuLink>
                       </li>
                     );

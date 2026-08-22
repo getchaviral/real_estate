@@ -92,14 +92,19 @@ export function matchesProjectLocationSlug(project: Project, locationSlug: strin
     .some((value) => slugifyLocation(value) === targetSlug);
 }
 
-export function sortPrimaryMarkets<T extends { name: string }>(markets: T[]) {
-  const order = PRIMARY_MARKETS.map((m) => m.toLowerCase());
+const PINNED_MARKETS = ["noida", "greater noida"];
+
+export function sortPrimaryMarkets<T extends { name: string; count?: number }>(markets: T[]) {
   return markets.slice().sort((a, b) => {
-    const aIndex = order.indexOf(a.name.toLowerCase());
-    const bIndex = order.indexOf(b.name.toLowerCase());
-    if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
-    if (aIndex !== -1) return -1;
-    if (bIndex !== -1) return 1;
+    const aPinIndex = PINNED_MARKETS.indexOf(a.name.toLowerCase());
+    const bPinIndex = PINNED_MARKETS.indexOf(b.name.toLowerCase());
+    if (aPinIndex !== -1 && bPinIndex !== -1) return aPinIndex - bPinIndex;
+    if (aPinIndex !== -1) return -1;
+    if (bPinIndex !== -1) return 1;
+
+    const countDiff = (b.count ?? 0) - (a.count ?? 0);
+    if (countDiff !== 0) return countDiff;
+
     return a.name.localeCompare(b.name, "en-IN", { sensitivity: "base" });
   });
 }
